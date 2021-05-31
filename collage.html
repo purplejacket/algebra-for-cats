@@ -4,6 +4,7 @@
     <script>
       function draw() {
         graph((x) => x*x**x,600,20,0,0);
+        ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
       }
       
       function graph(func = 0, displaySize, length = 13, xOffset= 0, yOffset = 0){
@@ -79,6 +80,7 @@
         line(displaySize/2+lineLength1,displaySize,displaySize/2-3+lineLength1,displaySize-length);
         line(displaySize/2+lineLength1,0,displaySize/2+3+lineLength1,length);
         line(displaySize/2+lineLength1,0,displaySize/2-3+lineLength1,length);
+        ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
       }
     </script>
   </head>
