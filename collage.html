@@ -2,87 +2,111 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script>
-      function draw() {
-        graph((x) => x*x**x,600,20,0,0);
-        fill('skyBlue')
-        ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
+      function draw(){
+        createCanvas(windowWidth,windowHeight);
+        background("green")
+        flower();
       }
+      function flower(){
+        fill("pink")
+        circle(windowWidth/4,windowHeight/4, 300)
+        fill("pink")
+        circle(windowWidth/8,windowHeight/2, 300)
+        fill("pink")
+        circle(windowWidth/8,windowHeight/2, 300)
+        fill("pink")
+        circle(windowWidth/2,windowHeight/6, 300)
+        fill("pink")
+        circle(windowWidth/1.3,windowHeight/4, 300)
+        fill("pink")
+        circle(windowWidth/1.2,windowHeight/2, 300)
+        fill("pink")
+        circle(windowWidth/4,windowHeight/1.5, 300)
+        fill("pink")
+        circle(windowWidth/2,windowHeight/1.3, 300)
+        fill("pink")
+        circle(windowWidth/1.3,windowHeight/1.5, 300)
+        fill("yellow")
+        circle(windowWidth/2,windowHeight/2.2, 300)
+      }
+      // function draw() {
+      //   graph((x) => x*x**x,600,20,0,0);
+      //   fill('skyBlue')
+      //   strokeWeight(1);
+      //   ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
+      // }
       
-      function graph(func = 0, displaySize, length = 13, xOffset= 0, yOffset = 0){
-        const scaleFact = displaySize/length;
-        const center = {x: displaySize/2+xOffset*scaleFact, y:displaySize/2-yOffset*scaleFact};
-        const lineLength1 = xOffset*scaleFact;
-        const lineLength2 = yOffset*scaleFact;
-        const weight = 1;
-        let pointRatio = 200;
+      // function graph(func = 0, displaySize, length = 13, xOffset= 0, yOffset = 0){
+      //   const scaleFact = displaySize/length;
+      //   const center = {x: displaySize/2+xOffset*scaleFact, y:displaySize/2-yOffset*scaleFact};
+      //   const lineLength1 = xOffset*scaleFact;
+      //   const lineLength2 = yOffset*scaleFact;
+      //   const weight = 1;
+      //   let pointRatio = 200;
+      //   createCanvas(displaySize,displaySize);
+      //   circle(displaySize/2, displaySize/2, 900);
+      //   stroke("black")
+      //   square(0,0,displaySize);
+      //   allComponents(scaleFact, displaySize, lineLength1, lineLength2, length);
 
-        createCanvas(displaySize,displaySize);
-        stroke('blue');
-        circle(displaySize/2, displaySize/2, 45);
-        stroke('black');
-        square(0,0,displaySize);
-        allComponents(scaleFact, displaySize, lineLength1, lineLength2, length);
+      //   strokeWeight(1);
+      //   line(0,displaySize/2-lineLength2,displaySize,displaySize/2-lineLength2);
+      //   line(displaySize/2+lineLength1,0,displaySize/2+lineLength1,displaySize);
+      //   makeArrows(displaySize,5,lineLength1,lineLength2);
+      //   drawFunction(func, displaySize, scaleFact, pointRatio, center, weight);
+      // }
 
-        strokeWeight(1);
-        line(0,displaySize/2-lineLength2,displaySize,displaySize/2-lineLength2);
-        line(displaySize/2+lineLength1,0,displaySize/2+lineLength1,displaySize);
-        makeArrows(displaySize,5,lineLength1,lineLength2);
-        drawFunction(func, displaySize, scaleFact, pointRatio, center, weight);
-      }
+      // function drawFunction(func, displaySize, scaleFact, pointRatio, center, weight) {
+      //   var count = displaySize*pointRatio;
+      //   var delta = displaySize/count;
+      //   var newDisplay = count/2;
+      //   stroke(Math.random()*255,Math.random()*255,Math.random()*255);
 
-      function drawFunction(func, displaySize, scaleFact, pointRatio, center, weight) {
-        var count = displaySize*pointRatio;
-        var delta = displaySize/count;
-        var newDisplay = count/2;
-        stroke(Math.random()*255,Math.random()*255,Math.random()*255);
-        stroke('blue');
-        circle(displaySize/2, displaySize/2, 45);
-        stroke('black');
+      //   for(let i = -newDisplay; i<newDisplay; i++){
+      //     let x = delta*i;
+      //     let y = func(x);
+      //     x *= scaleFact;
+      //     y *= scaleFact;
+      //     x = center.x + x;
+      //     y = center.y - y;
+      //   if(x>0 && y>0 && x<displaySize && y<displaySize){
+      //     // stroke(Math.random()*255,Math.random()*255,Math.random()*255);
+      //       strokeWeight(weight);
+      //       point(x,y);
+      //     }
+      //   }
+      // }
 
-        for(let i = -newDisplay; i<newDisplay; i++){
-          let x = delta*i;
-          let y = func(x);
-          x *= scaleFact;
-          y *= scaleFact;
-          x = center.x + x;
-          y = center.y - y;
-        if(x>0 && y>0 && x<displaySize && y<displaySize){
-          // stroke(Math.random()*255,Math.random()*255,Math.random()*255);
-            strokeWeight(weight);
-            point(x,y);
-          }
-        }
-      }
+      // function allComponents(scaleFact, displaySize, lineLength1, lineLength2, length) {
+      //   for(let i = scaleFact; i<displaySize; i+=scaleFact){
+      //     strokeWeight(1);
+      //     stroke('skyBlue');
+      //     line(i,0,i,displaySize);
+      //     line(0,i,displaySize,i);
+      //     strokeWeight(6);
+      //     stroke('black');
+      //     point(i,displaySize/2 - lineLength2);
+      //     point(displaySize/2 + lineLength1, i); 
+      //     stroke("red")
+      //     strokeWeight(0.1);
+      //     // if(i/scaleFact-length/2 !== 0){
+      //     //   text((i/scaleFact-length/2).toString(),i,displaySize/2 - lineLength2+15);
+      //     //   text((length/2-i/scaleFact).toString(),displaySize/2 + lineLength1+7,i);
+      //     // }
+      //   }
+      // }
 
-      function allComponents(scaleFact, displaySize, lineLength1, lineLength2, length) {
-        for(let i = scaleFact; i<displaySize; i+=scaleFact){
-          strokeWeight(1);
-          stroke('skyBlue');
-          line(i,0,i,displaySize);
-          line(0,i,displaySize,i);
-          strokeWeight(5);
-          stroke('black');
-          point(i,displaySize/2 - lineLength2);
-          point(displaySize/2 + lineLength1, i);        
-          strokeWeight(0.1);
-          // if(i/scaleFact-length/2 !== 0){
-          //   text((i/scaleFact-length/2).toString(),i,displaySize/2 - lineLength2+15);
-          //   text((length/2-i/scaleFact).toString(),displaySize/2 + lineLength1+7,i);
-          // }
-        }
-      }
-
-      function makeArrows(displaySize,length,lineLength1,lineLength2){
-        line(0,displaySize/2-lineLength2,length,displaySize/2+3-lineLength2);
-        line(0,displaySize/2-lineLength2,length,displaySize/2-3-lineLength2);
-        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2+3-lineLength2);
-        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2-3-lineLength2);  
-        line(displaySize/2+lineLength1,displaySize,displaySize/2+3+lineLength1,displaySize-length);
-        line(displaySize/2+lineLength1,displaySize,displaySize/2-3+lineLength1,displaySize-length);
-        line(displaySize/2+lineLength1,0,displaySize/2+3+lineLength1,length);
-        line(displaySize/2+lineLength1,0,displaySize/2-3+lineLength1,length);
-        ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
-      }
+      // function makeArrows(displaySize,length,lineLength1,lineLength2){
+      //   line(0,displaySize/2-lineLength2,length,displaySize/2+3-lineLength2);
+      //   line(0,displaySize/2-lineLength2,length,displaySize/2-3-lineLength2);
+      //   line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2+3-lineLength2);
+      //   line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2-3-lineLength2);  
+      //   line(displaySize/2+lineLength1,displaySize,displaySize/2+3+lineLength1,displaySize-length);
+      //   line(displaySize/2+lineLength1,displaySize,displaySize/2-3+lineLength1,displaySize-length);
+      //   line(displaySize/2+lineLength1,0,displaySize/2+3+lineLength1,length);
+      //   line(displaySize/2+lineLength1,0,displaySize/2-3+lineLength1,length);
+      //   ellipse(displaysize/2, displaysize/2,displaysize/2,displaysize/2);
+      // }
     </script>
   </head>
 </html>
