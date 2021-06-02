@@ -7,7 +7,7 @@
         createCanvas(windowWidth,windowHeight);
         background("green")
         flower();
-        coloredCircle();
+        coloredCircle(15, 'purple');
       }
       function flower(){
         fill("pink")
@@ -31,10 +31,13 @@
         fill("yellow")
         circle(windowWidth/2,windowHeight/2.2, 300)
       }
-      function coloredCircle(){
+      function coloredCircle(size, color){
         c = {r: c.r, g: c.g - 1, b: c.b -2};
         fill(c.r, c.g, c.b);
-        circle(windowWidth/2, windowHeight/2, 100);
+        if(color){
+          fill(color);
+        }
+        circle(windowWidth/2, windowHeight/2, size);
         if(c.r < 1 || c.g < 1 || c.b < 1){
           c = {r: 225, g: 255, b: 255};
         }
