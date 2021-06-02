@@ -6,7 +6,7 @@
         createCanvas(windowWidth,windowHeight);
         background("green")
         flower();
-        drawEgg();
+        coloredCircle();
       }
       function flower(){
         fill("pink")
@@ -31,10 +31,9 @@
         circle(windowWidth/2,windowHeight/2.2, 300)
       }
       function coloredCircle(){
-        background(220);
-        c = {r: c.r - 1, g: c.g - 3, b: c.b -2};
+        c = {r: c.r - 1, g: c.g - 1.5, b: c.b -2};
         fill(c.r, c.g, c.b);
-        circle(200, 200, 50);
+        circle(400, 400, 100);
         if(c.r < 1 && c.g < 1 && c.b < 1){
           c = {r: 225, g: 255, b: 255};
         }
