@@ -3,13 +3,14 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script>
       let c = {r: 225, g: 255, b: 255};
-      function draw(){
-        createCanvas(windowWidth,windowHeight);
+      function setup(){
+        createCanvas(1400,800);
         background("green")
-        flower();
-        coloredCircle(15, 'purple');
+        flowerLeaves(1400, 800);
+        flower(1400, 800);
+        // coloredCircle(15, 'purple');
       }
-      function flower(){
+      function flower(windowWidth, windowHeight){
         fill("pink")
         circle(windowWidth/2.88, windowHeight/1.5, 300)
         fill("pink")
@@ -28,6 +29,14 @@
         circle(windowWidth/3.3, windowHeight/2, 300)
         fill("yellow")
         circle(windowWidth/2, windowHeight/2.2, 300)
+      }
+      function flowerLeaves(windowWidth, windowHeight){
+        stroke('darkgreen');
+        fill('lightgreen');
+        bezier(450, windowHeight/2, 350, windowHeight/2-100, 250, windowHeight/2-150, 100, windowHeight/2);
+        bezier(450, windowHeight/2, 350, windowHeight/2+100, 250, windowHeight/2+150, 100, windowHeight/2);
+        bezier(900, windowHeight/2, 1000, windowHeight/2-100, 1100, windowHeight/2-150, 1250, windowHeight/2);
+        bezier(900, windowHeight/2, 1000, windowHeight/2+100, 1100, windowHeight/2+150, 1250, windowHeight/2);
       }
       // function coloredCircle(size, color){
       //   c = {r: c.r, g: c.g - 1, b: c.b -2};
