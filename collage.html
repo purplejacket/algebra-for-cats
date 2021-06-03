@@ -2,14 +2,17 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script>
-      let c = {r: 225, g: 255, b: 255};
-      function draw(){
+      // let c = {r: 225, g: 255, b: 255};
+      function setup(){
         createCanvas(windowWidth,windowHeight);
         background("black")
         solarSistem();
       }
 
       function solarSistem(){
+        addStars();
+        stroke('black');
+        strokeWeight(1);
         fill("yellow")
         circle(1, windowHeight/2, 600)
         fill(195, 129, 74)
@@ -27,6 +30,21 @@
         fill(234, 214, 192)
         circle(windowWidth/1.10, windowHeight/2, 220)
         //i couldn't put uranus and neptune 
+      }
+      function addStars(){
+        for(let i = 0; i< windowWidth; i+=0.05){
+          let pos = {x: i, y: Math.random() * windowHeight};
+          let makeComets = Math.floor(Math.random() * 100);
+          if(makeComets > 98){
+            stroke(138, 238, 255);
+            strokeWeight(2);
+            point(pos.x, pos.y);
+          }else {
+            strokeWeight(0.5);
+            stroke('white');
+            point(pos.x, pos.y);
+          }
+        }
       }
 
 
