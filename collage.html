@@ -3,41 +3,53 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script>
       let c = {r: 225, g: 255, b: 255};
-      function setup(){
-        createCanvas(1400,800);
-        background("green")
-        flowerLeaves(1400, 800);
-        flower(1400, 800);
-        // coloredCircle(15, 'purple');
+      function draw(){
+        createCanvas(windowWidth,windowHeight);
+        background("black")
+        solarSistem();
       }
-      function flower(windowWidth, windowHeight){
-        fill("pink")
-        circle(windowWidth/2.88, windowHeight/1.5, 300)
-        fill("pink")
-        circle(windowWidth/2, windowHeight/1.3, 300)
-        fill("pink")
-        circle(windowWidth/1.6, windowHeight/1.5, 300)
-        fill("pink")
-        circle(windowWidth/1.5, windowHeight/2, 300)
-        fill("pink")
-        circle(windowWidth/1.58, windowHeight/3.8, 300)
-        fill("pink")
-        circle(windowWidth/2, windowHeight/5, 300)
-        fill("pink")
-        circle(windowWidth/2.86, windowHeight/3.8, 300)
-        fill("pink")
-        circle(windowWidth/3.3, windowHeight/2, 300)
+
+      function solarSistem(){
         fill("yellow")
-        circle(windowWidth/2, windowHeight/2.2, 300)
+        circle(1, windowHeight/2, 600)
+        fill(195, 129, 74)
+        circle(windowWidth/4, windowHeight/2, 30)
+        fill(140, 100, 47)
+        circle(windowWidth/3.3, windowHeight/2, 100)
+        fill(61, 103, 182)
+        circle(windowWidth/2.4, windowHeight/2, 190)
+        fill("white")
+        circle(windowWidth/2.2, windowHeight/2.8, 10)
+        fill(202, 150, 97)
+        circle(windowWidth/1.84, windowHeight/2, 140)
+        fill(226, 207, 167)
+        circle(windowWidth/1.4, windowHeight/2, 300)
+        fill(234, 214, 192)
+        circle(windowWidth/1.10, windowHeight/2, 220)
+        //i couldn't put uranus and neptune 
       }
-      function flowerLeaves(windowWidth, windowHeight){
-        stroke('darkgreen');
-        fill('lightgreen');
-        bezier(450, windowHeight/2, 350, windowHeight/2-100, 250, windowHeight/2-150, 100, windowHeight/2);
-        bezier(450, windowHeight/2, 350, windowHeight/2+100, 250, windowHeight/2+150, 100, windowHeight/2);
-        bezier(900, windowHeight/2, 1000, windowHeight/2-100, 1100, windowHeight/2-150, 1250, windowHeight/2);
-        bezier(900, windowHeight/2, 1000, windowHeight/2+100, 1100, windowHeight/2+150, 1250, windowHeight/2);
-      }
+
+
+      // function flower(){
+      //   fill("pink")
+      //   circle(windowWidth/2.88, windowHeight/1.5, 300)
+      //   fill("pink")
+      //   circle(windowWidth/2, windowHeight/1.3, 300)
+      //   fill("pink")
+      //   circle(windowWidth/1.6, windowHeight/1.5, 300)
+      //   fill("pink")
+      //   circle(windowWidth/1.5, windowHeight/2, 300)
+      //   fill("pink")
+      //   circle(windowWidth/1.58, windowHeight/3.8, 300)
+      //   fill("pink")
+      //   circle(windowWidth/2, windowHeight/5, 300)
+      //   fill("pink")
+      //   circle(windowWidth/2.86, windowHeight/3.8, 300)
+      //   fill("pink")
+      //   circle(windowWidth/3.3, windowHeight/2, 300)
+      //   fill("yellow")
+      //   circle(windowWidth/2, windowHeight/2.2, 300)
+      // }
       // function coloredCircle(size, color){
       //   c = {r: c.r, g: c.g - 1, b: c.b -2};
       //   fill(c.r, c.g, c.b);
