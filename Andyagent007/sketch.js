@@ -11,9 +11,10 @@ function setup() {
   const func6 = ( x )  => 10 * x / (x * x)
   const func7 = (x) => 5 * Math.atan(x);
   const func8 = ( x )  => x + 3
+  const func9 = (x) => 5 * Math.log2(x);
   const funcArray = [func1, func2, func3, func4];
   const options = {offset:{x:0, y: 0, }, pointRatio: 100};
-  graph(funcArray, options);
+  graph(func9, options);
 }
 
 function draw() {
