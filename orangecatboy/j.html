@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+    <script>
+      function setup(){
+        graph(900);
+      }
+      
+        function graph(displaySize, length = 4, xOffset= 0, yOffset = 0){
+        const scaleFact = displaySize/length;
+        const center = {x: displaySize/2+xOffset*scaleFact, y:displaySize/2-yOffset*scaleFact};
+        const lineLength1 = xOffset*scaleFact;
+        const lineLength2 = yOffset*scaleFact;
+        let weight = 5;
+        let pointRatio = 500;
+        let randomNumber = Math.floor(Math.random()*11) + 5;
+        let angle = Math.random() * Math.pi * 2;
+
+        createCanvas(displaySize,displaySize);
+        stroke('black');
+        square(0,0,displaySize);
+        allComponents(scaleFact, displaySize, lineLength1, lineLength2, length);
+
+        strokeWeight(1);
+        line(0,displaySize/2-lineLength2,displaySize,displaySize/2-lineLength2);
+        line(displaySize/2+lineLength1,0,displaySize/2+lineLength1,displaySize);
+        makeArrows(displaySize,5,lineLength1,lineLength2);
+        noFill();
+        ellipse(displaySize/2, displaySize/2, displaySize/length*2, displaySize/length*2);
+        // triangle(30, 75, 58, 20, 86, 75);
+      }
+
+      function allComponents(scaleFact, displaySize, lineLength1, lineLength2, length) {
+        for(let i = scaleFact; i<displaySize; i+=scaleFact){
+          strokeWeight(1);
+          stroke('skyBlue');
+          line(i,0,i,displaySize);
+          line(0,i,displaySize,i);
+          strokeWeight(5);
+          stroke('black');
+          point(i,displaySize/2 - lineLength2);
+          point(displaySize/2 + lineLength1, i);        
+          strokeWeight(0.1);
+          // if(i/scaleFact-length/2 !== 0){
+          //   text((i/scaleFact-length/2).toString(),i,displaySize/2 - lineLength2+15);
+          //   text((length/2-i/scaleFact).toString(),displaySize/2 + lineLength1+7,i);
+          // }
+        }
+      }
+
+      function makeArrows(displaySize,length,lineLength1,lineLength2){
+        line(0,displaySize/2-lineLength2,length,displaySize/2+3-lineLength2);
+        line(0,displaySize/2-lineLength2,length,displaySize/2-3-lineLength2);
+        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2+3-lineLength2);
+        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2-3-lineLength2);  
+        line(displaySize/2+lineLength1,displaySize,displaySize/2+3+lineLength1,displaySize-length);
+        line(displaySize/2+lineLength1,displaySize,displaySize/2-3+lineLength1,displaySize-length);
+        line(displaySize/2+lineLength1,0,displaySize/2+3+lineLength1,length);
+        line(displaySize/2+lineLength1,0,displaySize/2-3+lineLength1,length);
+      }
+    </script>
+  </head>
+</html>
