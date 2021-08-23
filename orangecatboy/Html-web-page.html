@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
  <meta charset="utf-8">
  <title></title>
 </head>
-<body>
+<body><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
    <style>
        h4{
            color: brown;
@@ -13,6 +17,17 @@
    <h1>Questions</h1>
  
    <h3>
+    <pre><code class="language-css">body {
+      font: 100% Helvetica, sans-serif;
+      color: orchid;
+    }
+    
+    .box {
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      border-radius: 10px;
+    }</code></pre>
    1.  Repurpose your graph function to draw a unit circle on a set of coordinate axes with graph paper.  <br>
        (By “repurpose” I mean:  copy your graph code to a new function called unitCircle and then modify the code.) Use a hard coded length of 4 <br>
        so that we can see a little context of the coordinate plane.  And use a hard-coded displaySize of 900. Then generate a random integer n <br>
@@ -25,7 +40,7 @@
        (x) => x
        (x) => Math.exp(x)
        (x) => Math.log(x)</h3>
-       <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/image%20(4).png">see image</a></h4>
+       <h4><img src="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/image%20(4).png?raw=true"></h4>
        <h4>The ones that curve are mirrored along the straight line.</h4>
       
    <h3>3. "Easy" console work:<br>
@@ -47,23 +62,28 @@
        Math.log(Math.exp(999))<br>
        Math.log(0)<br></h3>
  
-           <h4>Unfortunatly I am unable to get this photo as it is a privite document</h4>
-           <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/image%20(5).png">see image</a></h4>
+       <h4><img src="           https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/image%20(5).png?raw=true"></img></h4>
 
- 
        <h3>4.  On the same graph show (x) => Math.cos(x) and (x) => 1 / Math.cos(x).  Write a sentence with some observations about this graph.</h3>
-       <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-08%20at%203.39.27%20PM.png">see image</a></h4>
 
        <h4>i notice that the bumps of the single wiggle are each touched by a matching pink curve</h4>
-       
+       <h4><img src="https://raw.githubusercontent.com/purplejacket/algebra-for-cats/main/orangecatboy/Screen%20Shot%202021-08-08%20at%202.51.05%20PM.png"></img></h4>
+
        <h3> 5. What is an interesting similarity between the graph of (x) => 1 / Math.cos(x) and (x) => 1 / x?  Explain why this similarity exists.</h3>
        
-       <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-08%20at%202.51.05%20PM.png">see image</a></h4>
+       <h4><img src="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-08%20at%203.39.27%20PM.png?raw=true"></img></h4>
+       <h4>these are both vertical asymptotes</h4>
       
    <h3>6. Create 5 crazy cool functions and put them all on the same graph.  Try experimenting with composition of functions, for example if f = (x) => Math.cos(x) and g = (x) => x * x  try graphing “f of g of x” and also “g of f of x”.  Also, take a look at the MDN Math object, there are some functions there we haven’t seen yet.</h3>
       
-   <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-17%20at%202.14.05%20PM.png">see image</a></h4>
-
+   <h4><img src="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-17%20at%202.14.05%20PM.png?raw=true"></img></h4>
+      <pre><code class="language-js">
+        const banana1 = (x) => Math.asin(x**2);<br>
+        const banana2 = (x) => Math.asin(x**3-2);<br>
+        const banana3 = (x) => Math.asin(x**2-9);<br>
+        const banana4 = (x) => Math.asin(x**2) / 2;<br>
+        const banana5 = (x) => Math.asin(x**2) +1;
+      </code></pre>
 
 <h3>7. Prepare 5 basic functions for a round of “guess the function,” and be prepared with ideas on how to help us figure them out in case we get stuck.</h3>
 
@@ -71,7 +91,8 @@
 
 <h3>8. Write a function to find the longest common prefix string amongst an array of strings.  If there is no common prefix, return an empty string "".  Example 1: Input: strs = [“flower”, “flow”, “flight”] — Output: “fl”.  Example 2: Input: strs = [“dog”, “racecar”, “car”] — Output: “”; Explanation: There is no common prefix among the input strings.</h3>
       
-<h4>function commonPrefix(stringArray){<br>
+<pre><code class="language-js">
+  function commonPrefix(stringArray){<br>
     let prefix = "";<br>
     let string1 = stringArray[0];<br>
     let n = 0;<br>
@@ -105,15 +126,16 @@
     }<br>
     return false;<br>
   }<br>
-</h4>
-
+</code></pre>
 <h3>9. Please give a brief update on Screepslandia.</h3>
       
 <h4>Screeps is good so far 4 level 7 - 8 rooms.</h4>
 
 <h3>10. A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.  Find the largest palindrome made from the product of two 3-digit numbers.</h3>
  
-<h4>913 * 993 = 906609</h4>
+<h4>913 * 993 = 906609
+  I found a list of palendromic numbers and the found the largest one that fit these requirements.
+</h4>
 
 <h3>11. Play around with Math.atan.  What’s the biggest possible value you can get?  What’s the smallest possible value you can get?</h3>
  
@@ -121,7 +143,7 @@
 
 <h3>12. Consider the gamma function attached to this homework thread.  Write two or three sentences with observations about the code, but specifically don’t actually run the code.  Any ideas as to what this thing does?</h3>
  
-<h4>I get that you are trying to help us understand how hard it is to read our own code. but geez there is no way I can figure this out</h4>
+<h4>this is an abreviation of gamma function, it seems like it will maybe print the factorial?</h4>
 
 <h3>13. Read this article:  <a href="https://es.wikipedia.org/wiki/Conjetura_de_Collatz">spanish link</a> <a href="https://en.wikipedia.org/wiki/Collatz_conjecture">english link</a> -- write a brief but precise description explaining:  What is the Collatz Conjecture?</h3>
  
@@ -129,7 +151,8 @@
 
 <h3>14. Design an algorithm then write a function collatzProof(num) that will prove the Collatz Conjecture for the integers from 1 through num.  Here's a helper question:  What might the output of collatzProof(4) look like?</h3>
  
-<h4>function collatz(n){<br>
+<pre><code class="language-js">
+  function collatz(n){<br>
     var results = [];<br>
     for (i = 1; i<=n; i++){<br>
         var within = [];<br>
@@ -149,14 +172,14 @@
         results.push(within);<br>
     }<br>
     return results;<br>
-}</h4>
+}</pre></code>
 
 <h3>15. Using mental math only:  What is 15 squared?  Do not check your answer, unless you check it mentally.  In fact, don’t write your answer down, just remember it.  Write a sentence describing how difficult this exercise was to do.</h3>
  
 <h4>I shall not say.</h4>
 
 <h3>16. In the image below, what is the meaning of A ∩ B ∩ C ∩ D ∩ E ∩ F in the center of the diagram?  In particular, what does that ∩ symbol mean?  Please give a clear written explanation.  By the way, this is an example of a Venn Diagram.</h3>
-<h4>A∩B∩C∩D∩E∩F is the combination of all 6 letters. the ∩ is a place holder like the word 'and'.
+<h4>A∩B∩C∩D∩E∩F is the combination of all 6 letters. the ∩ is a place holder like the word 'and' or 'intersects'. it also means x intersects y
 </h4>
 </body>
 </html>
