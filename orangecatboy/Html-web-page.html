@@ -17,17 +17,6 @@
    <h1>Questions</h1>
  
    <h3>
-    <pre><code class="language-css">body {
-      font: 100% Helvetica, sans-serif;
-      color: orchid;
-    }
-    
-    .box {
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      border-radius: 10px;
-    }</code></pre>
    1.  Repurpose your graph function to draw a unit circle on a set of coordinate axes with graph paper.  <br>
        (By “repurpose” I mean:  copy your graph code to a new function called unitCircle and then modify the code.) Use a hard coded length of 4 <br>
        so that we can see a little context of the coordinate plane.  And use a hard-coded displaySize of 900. Then generate a random integer n <br>
@@ -35,7 +24,71 @@
        equally likely to be anywhere on the circle.  I.e., if you were to put a million random points they wouldn’t cluster up in any particular hot spots on the circle.<br></h3>
       
        <h4><a href="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/j.html">here u go :D</a></h4>
+       <pre><code class="language-js">
+        function setup(){
+        graph(900);
+      }
       
+        function graph(displaySize, length = 4, xOffset= 0, yOffset = 0){
+        const scaleFact = displaySize/length;
+        const center = {x: displaySize/2+xOffset*scaleFact, y:displaySize/2-yOffset*scaleFact};
+        const lineLength1 = xOffset*scaleFact;
+        const lineLength2 = yOffset*scaleFact;
+        let weight = 5;
+        let pointRatio = 500;
+        let randomNumber = Math.floor(Math.random()*11) + 5;
+
+
+        createCanvas(displaySize,displaySize);
+        stroke('black');
+        square(0,0,displaySize);
+        allComponents(scaleFact, displaySize, lineLength1, lineLength2, length);
+
+        strokeWeight(1);
+        line(0,displaySize/2-lineLength2,displaySize,displaySize/2-lineLength2);
+        line(displaySize/2+lineLength1,0,displaySize/2+lineLength1,displaySize);
+        makeArrows(displaySize,5,lineLength1,lineLength2);
+        noFill();
+        ellipse(displaySize/2, displaySize/2, displaySize/length*2, displaySize/length*2);
+        strokeWeight(10);
+        for(let i = 0; i'<'randomNumber; i++){
+          let angle = Math.random() * Math.PI * 2;
+          let x = Math.cos(angle);
+          let y = Math.sin(angle);
+          point(x*scaleFact+displaySize/2,-(y*scaleFact)+displaySize/2);
+        }
+      }
+
+      function allComponents(scaleFact, displaySize, lineLength1, lineLength2, length) {
+        for(let i = scaleFact; i'<'displaySize; i+=scaleFact){
+          strokeWeight(1);
+          stroke('skyBlue');
+          line(i,0,i,displaySize);
+          line(0,i,displaySize,i);
+          strokeWeight(5);
+          stroke('black');
+          point(i,displaySize/2 - lineLength2);
+          point(displaySize/2 + lineLength1, i);        
+          strokeWeight(0.1);
+          // if(i/scaleFact-length/2 !== 0){
+          //   text((i/scaleFact-length/2).toString(),i,displaySize/2 - lineLength2+15);
+          //   text((length/2-i/scaleFact).toString(),displaySize/2 + lineLength1+7,i);
+          // }
+        }
+      }
+
+      function makeArrows(displaySize,length,lineLength1,lineLength2){
+        line(0,displaySize/2-lineLength2,length,displaySize/2+3-lineLength2);
+        line(0,displaySize/2-lineLength2,length,displaySize/2-3-lineLength2);
+        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2+3-lineLength2);
+        line(displaySize,displaySize/2-lineLength2,displaySize-length,displaySize/2-3-lineLength2);  
+        line(displaySize/2+lineLength1,displaySize,displaySize/2+3+lineLength1,displaySize-length);
+        line(displaySize/2+lineLength1,displaySize,displaySize/2-3+lineLength1,displaySize-length);
+        line(displaySize/2+lineLength1,0,displaySize/2+3+lineLength1,length);
+        line(displaySize/2+lineLength1,0,displaySize/2-3+lineLength1,length);
+      }
+    </code></pre>
+    <h4><img src="    https://github.com/purplejacket/algebra-for-cats/blob/main/Screen%20Shot%202021-08-23%20at%2010.00.06%20AM.png?raw=true      "></h4>
        <h3>2.    Graph the following three function on the same graph.  Write a sentence describing what’s going on here of mathematical significance.<br>
        (x) => x
        (x) => Math.exp(x)
@@ -78,11 +131,11 @@
       
    <h4><img src="https://github.com/purplejacket/algebra-for-cats/blob/main/orangecatboy/Screen%20Shot%202021-08-17%20at%202.14.05%20PM.png?raw=true"></img></h4>
       <pre><code class="language-js">
-        const banana1 = (x) => Math.asin(x**2);<br>
-        const banana2 = (x) => Math.asin(x**3-2);<br>
-        const banana3 = (x) => Math.asin(x**2-9);<br>
-        const banana4 = (x) => Math.asin(x**2) / 2;<br>
-        const banana5 = (x) => Math.asin(x**2) +1;
+        *const banana1 = (x) => Math.asin(x**2);<br>
+        *const banana2 = (x) => Math.asin(x**3-2);<br>
+        *const banana3 = (x) => Math.asin(x**2-9);<br>
+        *const banana4 = (x) => Math.asin(x**2) / 2;<br>
+        *const banana5 = (x) => Math.asin(x**2) +1;
       </code></pre>
 
 <h3>7. Prepare 5 basic functions for a round of “guess the function,” and be prepared with ideas on how to help us figure them out in case we get stuck.</h3>
