@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>kaboom</title>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+    }
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+  </style>
+</head>
+
+<body>
+  <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+  <script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script>
+  <script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
+  <script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script>
+  <script src="https://kaboomjs.com/lib/0.6.0/kaboom.js"></script>
+  <script>
+    kaboom({
+      ...{"fullscreen":true,"width":240,"height":240,"scale":2,"startScene":"main","version":"0.6.0"},
+      global: true,
+      clearColor: [0, 0, 0, 1],
+      plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
+    });
+    loadSprite("char", "knight.png");
+    loadSprite("wall", "wall.png");
+    loadSprite("npc1", "farmer.png");
+    loadSprite("door", "door.png");
+    loadSprite("npc2", "king.png");
+    loadSprite("npc3", "queen.png");
+    loadSprite("key", "key.png");
+    loadSprite("npc4", "knight2.png");
+    loadSprite("lavafloor", "lava.png");
+    loadSprite("ghost", "ghost.png");
+    loadSprite("npc5", "servant.png");
+    loadSprite("npc6", "mage.png");
+    loadSprite("npc7", "armorer.png");
+    loadSprite("npc8", "alchemeister.png");
+    loadSprite("npc9", "playwright.png");
+    loadSprite("wall2", "wall2.png");
+    loadSprite("stairs", "stairs.png");
+    loadSprite("anvil", "anvil.png");
+    loadSprite("furnace", "furnace.png");
+    loadSprite("npc10", "specter-knight.png");
+    loadSprite("ghoul", "ghoul.png");
+    loadSprite("weapons", "weapons.png");
+    loadSprite("poisonskull", "poison-skull.png");
+    loadSprite("npc11", "plague-doctor.png");
+    loadSprite("npc12", "enchantress.png");
+    loadSprite("npc13", "fire-knight.png");
+    loadSprite("wall3", "wall3.png");
+    loadSprite("spikes", "spikes.png");
+    loadSprite("blazorb", "blazorb.png");
+    loadSprite("door2", "door2.png");
+    loadSprite("npc14", "red-samurai.png");
+    loadSprite("npc15", "king-skeleton.png");
+    loadSprite("thief", "prince.png");
+    loadSprite("first", "final-1.png");
+    loadSprite("second", "final-2.png");
+    loadSprite("third", "final-3.png");
+
+    loadSound("collected", "collected.mp3");
+    loadSound("music", "castle-sound.m4a");
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>
