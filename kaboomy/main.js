@@ -370,7 +370,7 @@ scene("main", (levelInx) => {
     "≈   ≈",
     "≈ æ ≈",
     "≈≈≈≈≈",
-  ],
+  ]
   ];
 
   const map = addLevel(levels[levelInx], {
