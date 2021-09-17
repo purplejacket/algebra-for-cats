@@ -388,7 +388,7 @@ scene("main", (levelInx) => {
       sprite("char"),
       scale(SCALE),
       origin("center"),
-      area(vec2(2), vec2(2)),
+      area({width:10, height:10}),
       "player",
     ],
     "$": [
