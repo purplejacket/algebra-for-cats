@@ -373,98 +373,98 @@ scene("main", (levelInx) => {
     width: 20,
     height: 20,
     pos: vec2(20, 20),
-    "=": [
+    "=": () => [
       sprite("wall"),
       area(),
       solid(),
     ],
-    "|": [
+    "|": () => [
       sprite("door"),
       area(),
       solid(),
       "door",
     ],
-    "@": [
+    "@": () => [
       sprite("char"),
       scale(SCALE),
       origin("center"),
       area({width:10, height:10}),
       "player",
-    ],
-    "$": [
+    ], 
+    "$": () => [
       sprite("key"),
       area(),
       "key",
     ],
-    "^": [
+    "^": () => [
       sprite("lavafloor"),
       area(),
       "hazard",
     ],
-    "*": [
+    "*": () => [
       sprite("ghost"),
       area(vec2(3), vec2(3)),
       "hazard",
     ],
-    "-": [
+    "-": () => [
       sprite("wall2"),
       solid(),
       area(),
     ],
-    ">": [
+    ">": () => [
       sprite("stairs"),
       solid(),
       area(),
       "door",
     ],
-    "~": [
+    "~": () => [
       sprite("anvil"),
       solid(),
       area(),
     ],
-    "!": [
+    "!": () => [
       sprite("furnace"),
       solid(),
       area(),
     ],
-    "#": [
+    "#": () => [
       sprite("ghoul"),
       area(vec2(3), vec2(3)),
       "hazard",
     ],
-    "`": [
+    "`": () => [
       sprite("weapons"),
       area(),
       solid(),
     ],
-    "¡": [
+    "¡": () => [
       sprite("poisonskull"),
       area(),
       solid(),
     ],
-    "≈": [
+    "≈": () => [
       sprite("wall3"),
       area(),
       solid(),
     ],
-    "•": [
+    "•": () => [
       sprite("spikes"),
       area(),
       "hazard",
     ],
-    "/": [
+    "/": () => [
       sprite("door2"),
       solid(),
       area(),
       "door",
     ],
-    "%": [
+    "%": () => [
       sprite("blazorb"),
       solid(),
       area(),
       "hazard",
     ],
-    "æ": [
+    "æ": () => [
       sprite("thief"),
       solid(),
       area(),
@@ -502,11 +502,11 @@ scene("main", (levelInx) => {
 
   const player = get("player")[0];
 
-  player.overlaps("final", () => {
+  player.collides("final", () => {
     go("ending", 0);
   });
 
-  player.overlaps("door", () => {
+  player.collides("door", () => {
     // if(levelInx  2){
       if(levelInx == 2 || levelInx == 3 || levelInx == 4 || levelInx == 7 || levelInx == 8 || levelInx == 10){
         if(hasKey == true){
@@ -524,12 +524,12 @@ scene("main", (levelInx) => {
     go("gameover", levelInx);
   })
 
-  player.overlaps("npc", (ch) => {
+  player.collides("npc", (ch) => {
     talk(ch.msg, ch.name, ch.textsize);
   });
 
   // if(levelInx == 2 || levelInx == 3){
-    player.overlaps("key", (key) => {
+    player.collides("key", (key) => {
       play("collected", {
         volume: 0.1,
         speed: 1.2,
