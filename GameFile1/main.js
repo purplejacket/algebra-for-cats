@@ -1,33 +1,47 @@
-const SPEED = 80;
+const SPEED = 90;
 const JUMP_FORCE = 300;
 const FALL_DEATH = 500;
 
+
 scene('main', () => {
+
+    // camIgnore("ui");
+    layers([
+        "ui",
+        "game",
+    ])
+
+    var score = 0;
     const map = addLevel([
-        "                  ",
-        "                  ",
-        "                  ",
-        "                  ",
-        "                  ",
-        "                  ",
-        "                  ",   
-        "$$$$$$$$$         ",
-        "         $$$$$$$$$",
-        "                  ",
-        "                  ",
+        "                               ",
+        "                               ",
+        "                               ",
+        "                               ",
+        "                             $ ",
+        "                             = ",
+        "                        ====   ",   
+        "=========           ===        ",
+        "          ========             ",
+        "                               ",
+        "                               ",
     ],
     {
         width:20,
         height:20,
-        "$": () => [
+        "=": () => [
             sprite("tile"),
             area(),
             solid()
-        ]
-        
-    })
+        ],
+        "$": () => [
+            sprite("coin"),
+            area(),
+            "collectable",
+        ],
+    });
       
-    camScale(vec2(2,2));
+    camScale(vec2(2.5, 2.5));
+    camIgnore(["ui"]);
     
     const player = add([
         sprite("player"),
@@ -42,6 +56,18 @@ scene('main', () => {
             go("gameover")
         }
     })
+
+    player.collides("collectable", (o) => {
+        destroy(o);
+        score++;
+        coinsLabel.text = score;
+    });
+
+    const coinsLabel = add([
+		text(score, 50),
+        layer("ui"),
+		pos(24, 24),
+	]);
     
     keyDown("right", () => {
         player.move(SPEED, 0)
