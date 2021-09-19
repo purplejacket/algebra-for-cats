@@ -23,16 +23,16 @@
 </head>
 
 <body>
-  <script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script>
-  <script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
-  <script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script>
+  <!-- <script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script> -->
+  <!-- <script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
+  <script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script> -->
   <script src="https://unpkg.com/kaboom@next/dist/kaboom.js"></script>
   <script>
     kaboom({
-      ...{"fullscreen":true,"width":240,"height":240,"scale":2,"startScene":"main","version":"0.6.0"},
+      ...{"startScene":"main","version":"0.6.0","stretch":true},
       global: true,
       clearColor: [0, 0, 0, 1],
-      plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
+      // plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
     });
     loadSprite("char", "knight.png");
     loadSprite("wall", "wall.png");

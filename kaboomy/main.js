@@ -388,7 +388,8 @@ scene("main", (levelInx) => {
       sprite("char"),
       scale(SCALE),
       origin("center"),
-      area({width:10, height:10}),
+      area(),
+      solid(),
       "player",
     ], 
     "$": () => [
@@ -587,9 +588,6 @@ scene("main", (levelInx) => {
   //   player.scale.x = -SCALE;
   // })
 
-  player.action(() => {
-    player.pushOutAll();
-  });
 
 });
 
