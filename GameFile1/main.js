@@ -1,4 +1,3 @@
 add([
     sprite('tile'),
-    
 ])
