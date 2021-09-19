@@ -1,0 +1,1 @@
+This directory will contain all sprites and code for our new game: _________.
