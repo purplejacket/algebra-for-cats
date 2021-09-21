@@ -1,11 +1,8 @@
 const SPEED = 90;
 const JUMP_FORCE = 300;
-<<<<<<< HEAD
 const FALL_DEATH = 1000;
-=======
 const FALL_DEATH = 500;
 const SCALE = 1;
->>>>>>> aa13d633c7faec3c3861498e3aeb5c1099311aa0
 
 
 scene("main", () => {
