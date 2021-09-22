@@ -1,7 +1,6 @@
 const SPEED = 90;
 const JUMP_FORCE = 300;
 const FALL_DEATH = 1000;
-const FALL_DEATH = 500;
 const SCALE = 1;
 
 scene ('main', () => {
@@ -60,7 +59,7 @@ scene ('main', () => {
     body (),
     scale (SCALE),
     origin ('center'),
-    pos (1000, 20),
+    pos (20, 20),
   ]);
 
   player.action (() => {
