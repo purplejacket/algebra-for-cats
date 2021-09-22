@@ -1,5 +1,6 @@
 const SPEED = 90;
 const JUMP_FORCE = 300;
+const FALL_DEATH = 1000;
 const FALL_DEATH = 500;
 const SCALE = 1;
 
