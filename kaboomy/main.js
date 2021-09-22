@@ -6,6 +6,9 @@ scene("main", (levelInx) => {
   const SCALE = 1;
   music.loop();
 
+  // camScale(vec2(2, 2));
+  // camPos(vec2(100, 100));
+
   const npc = {
     "f": {
       sprite: "npc1",
@@ -388,7 +391,7 @@ scene("main", (levelInx) => {
       sprite("char"),
       scale(SCALE),
       origin("center"),
-      area(),
+      area({scale: 0.8}),
       solid(),
       "player",
     ], 
@@ -588,7 +591,9 @@ scene("main", (levelInx) => {
   //   player.scale.x = -SCALE;
   // })
 
-
+  player.action(() => {
+    player.pushOutAll();
+  })
 });
 
 scene("gameover", (lvlIndex) => {
