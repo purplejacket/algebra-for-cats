@@ -48,7 +48,8 @@ scene ('main', () => {
   );
 
   camScale (vec2 (2.5, 2.5));
-  camIgnore (['ui']);
+  // camIgnore (['ui']);
+    // fixed(['ui']);
 
   const player = add ([
     sprite ('player', {
