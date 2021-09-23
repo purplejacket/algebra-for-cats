@@ -1,5 +1,5 @@
 const SPEED = 90;
-const JUMP_FORCE = 300;
+const JUMP_FORCE = 400;
 const FALL_DEATH = 1000;
 const SCALE = 1;
 
@@ -10,33 +10,33 @@ scene ('main', () => {
   var score = 0;
   const map = addLevel (
     [
-      '                                                               ',
-      '                                                               ',
-      '                                                               ',
-      '                                                               ',
-      '                             $   ↓                             ',
-      '                             =====  ↓             $      b  b  ',
-      '      >               ^ ====       == ↓   $$$    ^=  = ========',
-      '=========        ^  ===               = $ ===   ^=             ',
-      '          ========                      =     ===              ',
-      '                                                               ',
-      '                                                               ',
+      '                                                                           ',
+      '                                                                           ',
+      '                                                                           ',
+      '                                                                           ',
+      '                             $   ↓                                         ',
+      '                             =====  ↓             $      b  b              ',
+      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==      ==',
+      '=========        ^  ===               = $ ===   ^=                 ======  ',
+      '          ========                      =     ===                          ',
+      '                                                                           ',
+      '                                                                           ',
     ],
     {
       width: 20,
       height: 20,
-      '=': () => [sprite ('tile'), area (), solid ()],
+      '=': () => [sprite ('tile'), area (), solid (), "tile"],
       '$': () => [sprite ('coin'), area (), 'collectable'],
       '>': () => [sprite ('left-arrow'), origin ('top')],
       '^': () => [sprite ('up-arrow'), origin ('top')],
       '↓': () => [sprite ('down-arrow'), origin ('top')],
-      b: () => [
+      'b': () => [
         sprite ('bug', {
           anim: "idle",
-          animSpeed: 0.2,
+          animSpeed: 0.8,
         }),
         origin ('top'),
-        area(),
+        area({scale: 0.6}),
         'bug',
         'monster',
         {
@@ -44,6 +44,18 @@ scene ('main', () => {
           reachesLimit: false,
         },
       ],
+      // "c": () => [
+      //   sprite ('crab'),
+      //   origin ('center'),
+      //   area(),
+      //   body(),
+      //   "movable-enemy",
+      //   'monster',
+      //   {
+      //     dir: -1,
+      //     speed: 80,
+      //   }
+      // ]
     }
   );
 
@@ -54,7 +66,7 @@ scene ('main', () => {
   const player = add ([
     sprite ('player', {
       frame: 0,
-      animSpeed: 0.1,
+      animSpeed: 1,
     }),
     area (),
     body (),
@@ -83,29 +95,31 @@ scene ('main', () => {
 	const coinsLabel = add([
 		text("SCORE: " + score, 20),
 		pos(24, 24),
-    layer("ui"),
+    fixed(),
 	]);
 
-  keyDown ('right', () => {
-    player.move (SPEED, 0);
+  keyDown("right", () => {
+    player.move(SPEED, 0);
+    console.log('right arrow is down :D')
   });
 
-  keyDown ('left', () => {
-    player.move (-SPEED, 0);
+  keyDown('left', () => {
+    player.move(-SPEED, 0);
+    console.log('left arrow is down :D')
   });
 
   keyPress ('space', () => {
     if (player.grounded ()) {
-      player.jump (JUMP_FORCE);
+      player.jump(JUMP_FORCE);
     }
   });
 
-  keyPress ('right', () => {
-    player.scale.x = SCALE;
-  });
-  keyPress ('left', () => {
-    player.scale.x = -SCALE;
-  });
+  // keyPress('right', () => {
+  //   player.scale.x = SCALE;
+  // });
+  // keyPress('left', () => {
+  //   player.scale.x *= -SCALE;
+  // });
 
   // ANIMATION PART
   player.action (() => {
@@ -148,15 +162,25 @@ scene ('main', () => {
     });
   }
 
+  // CRAB PART
+  // action("movable-enemy", (m) => {
+  //   m.move(m.dir * m.speed, 0);
+  // })
+
+  // collides("movable-enemy", "tile", (m) => {
+  //   m.dir *= -1;
+  // })
 });
 
-scene ('gameover', () => {
+scene('gameover', () => {
   play ('game-over', {
     speed: 5,
   });
-  add ([
-    text ('you died', 50),
-    color (1, 1, 1),
+  add([
+    text ('you died', {
+      size: 100,
+    }),
+    color (255, 255, 255),
     origin ('center'),
     pos (width () / 2, height () / 2),
   ]);

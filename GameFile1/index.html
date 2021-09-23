@@ -43,7 +43,7 @@
       sliceY: 1,
       anims: {
         idle: {from: 0, to: 0},
-        run: {from: 1, to: 4},
+        run: {from: 1, to: 4, loop: true},
         fall: {from: 5, to: 5},
       }
     });
@@ -58,6 +58,7 @@
     loadSprite("left-arrow", "sprites/tile_0093.png");
     loadSprite("up-arrow", "sprites/tile_0094.png");
     loadSprite("down-arrow", "sprites/tile_0095.png");
+    loadSprite("crab", "sprites/tile_0340.png");
 
     loadSound("coin", "sounds/coin.wav")
     loadSound("game-over", "sounds/game-over.wav")
