@@ -26,8 +26,8 @@
   <script src="https://kaboomjs.com/lib/0.5.0/plugins/aseprite.js"></script>
   <script src="https://kaboomjs.com/lib/0.5.0/plugins/pedit.js"></script>
   <script src="https://kaboomjs.com/pub/legacy/kbmsprite.js"></script>
-  <script src="https://unpkg.com/kaboom@next/dist/kaboom.js"></script>
-  <!-- <script src="https://kaboomjs.com/lib/0.6.0/kaboom.js"></script> -->
+  <!-- <script src="https://unpkg.com/kaboom@next/dist/kaboom.js"></script> -->
+  <script src="https://kaboomjs.com/lib/0.6.0/kaboom.js"></script>
   <script>
     kaboom({
       ...{ "fullscreen": true, "version": "0.6.0"},
@@ -54,14 +54,26 @@
         idle: {from: 0, to: 1, loop: true},
       }
     });
+    loadSprite("bug2", "sprites/bug2.png", {
+      sliceX: 2,
+      sliceY: 1,
+      anims: {
+        idle: {from: 0, to: 1, loop: true},
+      }
+    });
     loadSprite("coin", "sprites/tile_0002.png");
     loadSprite("left-arrow", "sprites/tile_0093.png");
     loadSprite("up-arrow", "sprites/tile_0094.png");
     loadSprite("down-arrow", "sprites/tile_0095.png");
     loadSprite("crab", "sprites/tile_0340.png");
+    loadSprite("ground-beg", "sprites/tile_0064.png");
+    loadSprite("ground-mid", "sprites/tile_0065.png");
+    loadSprite("ground-end", "sprites/tile_0066.png");
+    // loadSprite("diamond", "sprites/tile_0082.png");
 
-    loadSound("coin", "sounds/coin.wav")
-    loadSound("game-over", "sounds/game-over.wav")
+    loadSound("coin", "sounds/coin.wav");
+    loadSound("diamond", "sounds/diamond.mp3");
+    loadSound("game-over", "sounds/game-over.wav");
   </script>
   <script src="main.js"></script>
 </body>

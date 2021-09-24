@@ -7,66 +7,86 @@ scene ('main', () => {
   // camIgnore("ui");
   layers (['ui', 'game']);
 
-  var score = 0;
-  const map = addLevel (
+  let score = 0;
+  const map = addLevel(
     [
-      '                                                                           ',
-      '                                                                           ',
-      '                                                                           ',
-      '                                                                           ',
-      '                             $   ↓                                         ',
-      '                             =====  ↓             $      b  b              ',
-      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==      ==',
-      '=========        ^  ===               = $ ===   ^=                 ======  ',
-      '          ========                      =     ===                          ',
-      '                                                                           ',
-      '                                                                           ',
+      '                                                                                             ',
+      '                                                                                            ',
+      '                                                                                         =   ',
+      '                                                                                    ===      ',
+      '                             $   ↓                       $$$$                  ===           ',
+      '                             =====  ↓             $      b  b                  f    b    b   ',
+      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠-----≈   ≠-----≈',
+      '=========        ^  ===               = $ ===   ^=                 ======                    ',
+      '          ========                      =     ===                                            ',
+      '                                                                                             ',
+      '                                                                                             ',
     ],
     {
       width: 20,
       height: 20,
       '=': () => [sprite ('tile'), area (), solid (), "tile"],
-      '$': () => [sprite ('coin'), area (), 'collectable'],
+      '$': () => [sprite ('coin'), area (), 'collectable', ],
       '>': () => [sprite ('left-arrow'), origin ('top')],
       '^': () => [sprite ('up-arrow'), origin ('top')],
       '↓': () => [sprite ('down-arrow'), origin ('top')],
+      "≠": () => [sprite("ground-beg"), area(), solid()],
+      "-": () => [sprite("ground-med"), area(), solid()],
+      "≈": () => [sprite("ground-end"), area(), solid()],
+      "¢": () => [sprite("diamond"), area(), 'collectable'],
       'b': () => [
         sprite ('bug', {
           anim: "idle",
-          animSpeed: 0.8,
+          animSpeed: 0.4,
         }),
         origin ('top'),
         area({scale: 0.6}),
         'bug',
         'monster',
         {
-          limit: {max: 0, min: 0},
-          reachesLimit: false,
+          limitY: {max: 0, min: 0},
+          reachesLimit: {x: false, y: false},
         },
       ],
-      // "c": () => [
-      //   sprite ('crab'),
-      //   origin ('center'),
-      //   area(),
-      //   body(),
-      //   "movable-enemy",
-      //   'monster',
-      //   {
-      //     dir: -1,
-      //     speed: 80,
-      //   }
-      // ]
+      "c": () => [
+        sprite ('crab'),
+        origin ('center'),
+        area(),
+        body(),
+        "movable-enemy",
+        'monster',
+        {
+          dir: -1,
+          speed: 80,
+        }
+      ],
+      "f": () => [
+        sprite("bug2", {
+          anim: "idle",
+          animSpeed: 0.3,
+        }),
+        origin("top"),
+        area(),
+        "bug",
+        "monster",
+        "movable-enemy", 
+        {
+          limitY: {max: 0, min: 0},
+          limitX: {max: 0, min: 0},
+          reachesLimit: {x: false, y: false},
+          speed: 40,
+        }
+      ]
     }
   );
 
   camScale (vec2 (2.5, 2.5));
-  // camIgnore (['ui']);
-    // fixed(['ui']);
+  camIgnore (['ui']);
 
   const player = add ([
     sprite ('player', {
       frame: 0,
-      animSpeed: 1,
+      animSpeed: 0.1,
     }),
     area (),
     body (),
@@ -78,24 +98,24 @@ scene ('main', () => {
   player.action (() => {
     camPos (player.pos);
     if (player.pos.y > FALL_DEATH) {
-      go ('gameover');
+      go ('gameover', score);
     }
   });
 
-  player.collides ('collectable', o => {
-    play ('coin');
+  player.collides ('collectable', (o) => {
+    play(o.sound);
+    score += o.v;
     destroy (o);
-    score++;
     coinsLabel.text = "SCORE: " + score;
   });
   player.collides('monster', () => {
-    go("gameover");
+    go("gameover", score);
   })
 
 	const coinsLabel = add([
 		text("SCORE: " + score, 20),
 		pos(24, 24),
-    fixed(),
+    layer("ui")
 	]);
 
   keyDown("right", () => {
@@ -114,12 +134,12 @@ scene ('main', () => {
     }
   });
 
-  // keyPress('right', () => {
-  //   player.scale.x = SCALE;
-  // });
-  // keyPress('left', () => {
-  //   player.scale.x *= -SCALE;
-  // });
+  keyPress('right', () => {
+    player.scale.x = SCALE;
+  });
+  keyPress('left', () => {
+    player.scale.x *= -SCALE;
+  });
 
   // ANIMATION PART
   player.action (() => {
@@ -144,17 +164,17 @@ scene ('main', () => {
   const bugs = get("bug");
   for(const bug of bugs){
     bug.play("idle");
-    bug.limit = {max: bug.pos.y - 5, min: bug.pos.y};
+    bug.limitY = {max: bug.pos.y - 5, min: bug.pos.y};
 
     bug.action (() => {
-      if (bug.limit.max == Math.floor (bug.pos.y)) {
-        bug.reachesLimit = true;
+      if (bug.limitY.max == Math.floor (bug.pos.y)) {
+        bug.reachesLimit.y = true;
       }
-      if (bug.limit.min == Math.floor (bug.pos.y)) {
-        bug.reachesLimit = false;
+      if (bug.limitY.min == Math.floor (bug.pos.y)) {
+        bug.reachesLimit.y = false;
       }
 
-      if (bug.reachesLimit) {
+      if (bug.reachesLimit.y) {
         bug.move (0, 5);
       } else {
         bug.move (0, -5);
@@ -163,23 +183,33 @@ scene ('main', () => {
   }
 
   // CRAB PART
-  // action("movable-enemy", (m) => {
-  //   m.move(m.dir * m.speed, 0);
-  // })
+  const movableMonsters = get("movable-enemy");
+  for(const movMon of movableMonsters){
+    movMon.limitX = {max: movMon.pos.x - 30, min: movMon.pos.x + 30};
 
-  // collides("movable-enemy", "tile", (m) => {
-  //   m.dir *= -1;
-  // })
+    movMon.action(() => {
+      if (movMon.limitX.max == Math.floor(movMon.pos.x)) {
+        movMon.reachesLimit.x = true;
+      }
+      if (movMon.limitX.min == Math.floor(movMon.pos.x)) {
+        movMon.reachesLimit.x = false;
+      }
+
+      if(movMon.reachesLimit.x){
+        movMon.move(1 * movMon.speed, 0);
+      }else {
+        movMon.move(-1 * movMon.speed, 0);
+      }
+    })
+  }
 });
 
-scene('gameover', () => {
+scene('gameover', (score) => {
   play ('game-over', {
     speed: 5,
   });
   add([
-    text ('you died', {
-      size: 100,
-    }),
+    text ("you died, SCORE: " + score, 30),
     color (255, 255, 255),
     origin ('center'),
     pos (width () / 2, height () / 2),
