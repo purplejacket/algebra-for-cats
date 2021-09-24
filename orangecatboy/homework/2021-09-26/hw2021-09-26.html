@@ -16,11 +16,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     h4{
         color:rgb(51, 87, 153);
     }
+    .emphasis{
+          font-family: 'Courier New', Courier, monospace;
+          background-color: rgb(61, 39, 39);
+          color: rgb(255, 251, 0);
+          border-radius: 2pt;
+          border: solid rgb(38, 187, 187);
+          border-width: 2pt;
+    }
 </style>
 <body>
 <h1>Homework Due September 26</h1>
 <h5>1. Is this a dog or a cat?  Would a computer be able to answer this question?  Discuss.</h5>
-<a href = "https://docs.google.com/document/d/1zjlOx7TRclFMwXsa5cJ3dVB4A4lGTbF5nGpsZryrke0/edit">link</a>
+<img src = 'is_this_a_dog_or_a_cat__WOW.png' width='400'>
 In the video Machine Learning Explained in 100 Seconds, we learned about the algorithms and steps behind making adaptable artificial intelligence.
 
 First, machine learning is teaching a machine to do something without explicitly telling it how. In other words: the machine will learn by repeatedly modifying its algorithm. The term machine learning was created in 1959 by Arthur Samuel. He coined the term at IBM while working to make AI that could play checkers. Machine learning today has two main tasks: classification, and prediction. The first step is to gather large amounts of data and put it into the computer. The second step is to clean up that data. Scientists called feature engineers perform this task. They also convert raw data to data that can be used for a specific task. It should be noted that you need data that is relevant to the question you are trying to answer, or else the result will be meaningless. Next, we separate the set of data into a training set and a testing set. Then we do the following:
@@ -31,15 +39,14 @@ First, machine learning is teaching a machine to do something without explicitly
 
 Now, we will choose an algorithm. In this example, the algorithm will be flexible that way it will have the chance to update itself. Next, we will take the image we would like to classify.
 
-<img src = 'is_this_a_dog_or_a_cat__WOW.png'>
 
 Now for the big question: would the computer be able to answer, is this a dog or a cat? The answer is no. While it may be eventually able to tell the difference, the problem is that this photo contradicts the statement, you need data that represents the issue. It has to match. You may notice that we know this animal is a dog. However, a computer will prioritize the face of said dog. This dog is wearing a cat mask. Therefore, this piece of data does not match the question, “Is this a dog or a cat?”
 
     <h5>2. Install surge.sh.  We will use this for question 3.  Take a look at the documentation and/or the 3 minute video.  Write a few sentences describing how it works, and what is different between the free and paid versions.</h5>
-    <h4> Surge.sh is a platform that lets you deploy code onto a server, when you deploy this code you are publishing it to a browser. Honestly, it's really cool.</h4>
+    <h4> Surge.sh is a platform that lets you deploy code onto a server, when you deploy this code you are publishing it to a browser. Honestly, it's really cool. First, you go into the folder you want to deploy, </h4>
         <h5>3. For the homework that was due July 4, turn it into an html file with associated image files. Take a screenshot of the top part of that as deployed on surge.sh, use MacOS Preview to scale it to a width of 1000, then put that screenshot here.</h5>
         <h4>Here you go:</h4>
-        <img src = "july4th.png" width="500">
+        <img src = "july4th.png" width="1000">
             <h5>4. Write 5 crooked, multi-faceted, uproarious, impulsive, mechanistic, convoluted, inimitable, bow-legged, fine-grained, intense functions … and put them all on the same graph. </h5>
             <pre><code class="language-js">    
             const f = (x) => x*x - x + 41;
@@ -50,35 +57,35 @@ Now for the big question: would the computer be able to answer, is this a dog or
             </code></pre>
             <img src = "coolFuncs.png" width="500">
                 <h5>5. In the xy-plane the red curve is the graph of some anonymous function, and the blue straight line is tangent to the red curve at some point in the fourth quadrant.  Does the tangent line have a positive or negative slope?  Approximately what is the slope of that line?  Explain.</h5>
-                <h4>Negative -1/2</h4>
+                <h4>-1/2, it goes down 1 and over 2.</h4>
                 <img src="red_function_with_a_tangent_line.png" width="500">
                     <h5>6. Mental math:  Go through the list of all 1 and 2 digit primes in your head.  This might take a few minutes.  Then look here:  <a href = 'https://en.wikipedia.org/wiki/Prime_number#Definition_and_examples'>https://en.wikipedia.org/wiki/Prime_number#Definition_and_examples</a> -- how many primes did you miss?  How many non-primes did you think were primes?  Which were these?  Would a computer be able to answer this question?  Discuss.</h5>
 
-                    <h4>I missed 2 primes. a computer could definitely answer this.</h4>
+                    <h4>I missed 2 primes. A computer could definitely answer this.</h4>
                     <pre><code class="language-js">
-                    function sieve(n) {
-                        let sqrt = Math.floor(Math.sqrt(n));
-                        let primes = [];
-                        let numbers = from2to(n);
-                        primes.push(numbers[0]);
-                        numbers.splice(0, 1)
-                        for(let i = 0; i < sqrt; i++){
-                            let prime = primes[i];
-                            for(let j = 0; j < numbers.length; j++){
-                                let number = numbers[j];
-                                let mod = number%prime;
-                                if(mod == 0){
-                                    numbers.splice(j, 1);
-                                }
-                            }
-                            primes.push(numbers[0]);
-                            numbers.splice(0, 1);
-                        }
-                        let rArray = primes.concat(numbers);
-                        return rArray;
-                    }
+function sieve(n) {
+    let sqrt = Math.floor(Math.sqrt(n));
+    let primes = [];
+    let numbers = from2to(n);
+    primes.push(numbers[0]);
+    numbers.splice(0, 1)
+    for(let i = 0; i < sqrt; i++){
+        let prime = primes[i];
+        for(let j = 0; j < numbers.length; j++){
+            let number = numbers[j];
+            let mod = number%prime;
+            if(mod == 0){
+                numbers.splice(j, 1);
+            }
+        }
+        primes.push(numbers[0]);
+        numbers.splice(0, 1);
+    }
+    let rArray = primes.concat(numbers);
+    return rArray;
+}
                 </code></pre>
-                        <h5>7. Write a function signFunc(x) that returns:<br>
+                        <h5>7. Write a function <span class="emphasis">signFunc(x)</span> that returns:<br>
 a. 1 if x is positive<br>
 b. 0 if x is zero<br>
 c. -1 if x is negative</h5>
@@ -92,7 +99,7 @@ c. -1 if x is negative</h5>
     }
 }
 </code></pre>
-<h5>8. Write a function signProduct(nums) that takes an array of numbers and calculates the signFunc of the product of those numbers.</h5>
+<h5>8. Write a function <span class="emphasis">signProduct(x)</span> that takes an array of numbers and calculates the <span class="emphasis">signFunc</span> of the product of those numbers.</h5>
 <pre><code class="language-js">
     function signProduct(nums){
         var num = 1;
@@ -104,22 +111,20 @@ c. -1 if x is negative</h5>
     }
 </code></pre>
     <h5>9. Take 3 different screenshots of Screepslandia on three different days, preferably spread out over 10 or more days.  Explain what is going on, and what is changing from one screenshot to the next. </h5>
-    <img src = "uno.png" width="500">
-    day 1
-    <img src = "dos.png" width="500">
-    day 2
-    <img src = "tres.png" width="500">
-    day 6
+    <div><img src="uno.png" width = '500'><p>day 1</p></div>
+    <div><img src="dos.png" width = '500'><p>day 2</p></div>
+    <div><img src="tres.png" width = '500'><p>day 6</p></div>
     <h4>Mostly just a lot of CPU issues, havent really being focusing on it lately.</h4>
-        <h5>10. Do a git pull on the https://github.com/purplejacket/algebra-for-cats repository.  Notice the new kaboomy directory.  This is a direct copy of Kenneth's game -- we call this a "fork". <br>
-Alex and Cris:  add some new levels to the game; you can also modify existing levels as you like.  Please communicate between the two of you as you work -- this is an exercise in using git as well as kaboomjs. <br>
-Kenneth:  please help Alex and Cris if you like; also, feel free to modify your original copy of the game as you like.<br>
-Show some code snippets and screenshots and explain what you've done.</h5>
+        <h5>10. Do a <span class="emphasis">signProduct(x)</span> that takes an array of numbers and calculates the <span class="emphasis">git pull</span> on the <a href = 'https://github.com/purplejacket/algebra-for-cats'>https://github.com/purplejacket/algebra-for-cats</a> repository.  Notice the new kaboomy directory.  This is a direct copy of Kenneth's game -- we call this a "fork". <br>
+*Alex and Cris:  add some new levels to the game; you can also modify existing levels as you like.  Please communicate between the two of you as you work -- this is an exercise in using git as well as kaboomjs. <br>
+*Kenneth:  please help Alex and Cris if you like; also, feel free to modify your original copy of the game as you like.<br>
+*Show some code snippets and screenshots and explain what you've done.</h5>
     <h5>11. Play the Flexbox Zombies game and get through a few more levels.  Take 2 screenshots when the game is particularly interesting or notable and explain what is going on.</h5>
-    <img src = "f2.png" width="500">
+
+    <img src = "f1.png" width="500">
     <img src = "f2.png" width="500">
 
-    <h4>learning new methods in flexbox and practicing them.</h4>
+    <h4>Learning new methods in flexbox and practicing them.</h4>
         <h5>12. Let f(x) = x² - x + 41.  Prove or disprove that f(n) is prime for all non-negative integers n. </h5>
         <h4>If x is 41:<br>
             f(x) = 1681 - 41 + 41<br>
