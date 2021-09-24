@@ -133,12 +133,21 @@ scene ('main', () => {
     console.log('left arrow is down :D')
   });
 
-  keyPress ('space', () => {
+  keyDown ('space', () => {
     if (player.grounded ()) {
       player.jump(JUMP_FORCE);
     }
   });
-
+  keyDown ('w', () => {
+    if (player.grounded ()) {
+      player.jump(JUMP_FORCE);
+    }
+  });
+  keyDown ('up', () => {
+    if (player.grounded ()) {
+      player.jump(JUMP_FORCE);
+    }
+  });
   keyPress('right', () => {
     player.scale.x = SCALE;
   });
