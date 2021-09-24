@@ -8,36 +8,41 @@ scene ('main', () => {
   layers (['ui', 'game']);
 
   let score = 0;
-  const map = addLevel(
+  addLevel(
     [
-      '                                                                                             ',
-      '                                                                                            ',
-      '                                                                                         =   ',
-      '                                                                                    ===      ',
-      '                             $   ↓                       $$$$                  ===           ',
-      '                             =====  ↓             $      b  b                  f    b    b   ',
-      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠-----≈   ≠-----≈',
-      '=========        ^  ===               = $ ===   ^=                 ======                    ',
-      '          ========                      =     ===                                            ',
-      '                                                                                             ',
-      '                                                                                             ',
+      '                                                                                       ',
+      '                                                                                      ¢',
+      '                                                                                      =',
+      '                                                                                   =    ',
+      '                             $   ↓                       $$$$                   =       ',
+      '                             =====  ↓             $      b  b                           ',
+      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠------≈    ',
+      '=========        ^  ===               = $ ===   ^=                 ======               ',
+      '          ========                      =     ===                                       ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
     ],
     {
-      width: 20,
-      height: 20,
+      width: 16,
+      height: 16,
       '=': () => [sprite ('tile'), area (), solid (), "tile"],
-      '$': () => [sprite ('coin'), area (), 'collectable', ],
+      '$': () => [sprite ('coin'), area (), 'collectable', {v: 1, sound: "coin"}],
       '>': () => [sprite ('left-arrow'), origin ('top')],
       '^': () => [sprite ('up-arrow'), origin ('top')],
       '↓': () => [sprite ('down-arrow'), origin ('top')],
       "≠": () => [sprite("ground-beg"), area(), solid()],
-      "-": () => [sprite("ground-med"), area(), solid()],
+      "-": () => [sprite("ground-mid"), area(), solid()],
       "≈": () => [sprite("ground-end"), area(), solid()],
-      "¢": () => [sprite("diamond"), area(), 'collectable'],
+      "¢": () => [sprite("diamond"), area(), 'collectable', {v: 10, sound: "diamond"}],
       'b': () => [
         sprite ('bug', {
           anim: "idle",
-          animSpeed: 0.4,
+          animSpeed: 0.5,
         }),
         origin ('top'),
         area({scale: 0.6}),
@@ -92,7 +97,7 @@ scene ('main', () => {
     body (),
     scale (SCALE),
     origin ('center'),
-    pos (20, 20),
+    pos (20 , 20),
   ]);
 
   player.action (() => {
