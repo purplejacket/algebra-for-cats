@@ -1,6 +1,6 @@
 const SPEED = 90;
-const JUMP_FORCE = 400;
-const FALL_DEATH = 1000;
+const JUMP_FORCE = 300;
+const FALL_DEATH = 600;
 const SCALE = 1;
 
 scene ('main', () => {
@@ -8,11 +8,41 @@ scene ('main', () => {
   layers (['ui', 'game']);
 
   let score = 0;
-  addLevel(
+
+  const decorations = addLevel(
     [
-      '                                                                                       ',
-      '                                                                                      ¢',
-      '                                                                                      =',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                 ↓                                                      ',
+      '                                    ↓                                        1   2      ',
+      '      >               ^               ↓          ^                                      ',
+      '                 ^                              ^                                       ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+      '                                                                                        ',
+    ], {
+      width:16,
+      height: 16,
+      '>': () => [sprite ('left-arrow'), origin ('top')],
+      '^': () => [sprite ('up-arrow'), origin ('top')],
+      '↓': () => [sprite ('down-arrow'), origin ('top')],
+      "1": () => [sprite("enviroment1"), origin("top")],
+      "2": () => [sprite("enviroment2"), origin("top")],
+    }
+  )
+
+  const map = addLevel(
+    [
+      '                                                                                        ',
+      '                                                                                      ¢ ',
+      '                                                                                      = ',
       '                                                                                   =    ',
       '                             $   ↓                       $$$$                   =       ',
       '                             =====  ↓             $      b  b                           ',
@@ -32,9 +62,6 @@ scene ('main', () => {
       height: 16,
       '=': () => [sprite ('tile'), area (), solid (), "tile"],
       '$': () => [sprite ('coin'), area (), 'collectable', {v: 1, sound: "coin"}],
-      '>': () => [sprite ('left-arrow'), origin ('top')],
-      '^': () => [sprite ('up-arrow'), origin ('top')],
-      '↓': () => [sprite ('down-arrow'), origin ('top')],
       "≠": () => [sprite("ground-beg"), area(), solid()],
       "-": () => [sprite("ground-mid"), area(), solid()],
       "≈": () => [sprite("ground-end"), area(), solid()],
@@ -42,7 +69,7 @@ scene ('main', () => {
       'b': () => [
         sprite ('bug', {
           anim: "idle",
-          animSpeed: 0.5,
+          animSpeed: 0.3,
         }),
         origin ('top'),
         area({scale: 0.6}),
@@ -68,7 +95,7 @@ scene ('main', () => {
       "f": () => [
         sprite("bug2", {
           anim: "idle",
-          animSpeed: 0.3,
+          animSpeed: 0.2,
         }),
         origin("top"),
         area(),
@@ -97,7 +124,7 @@ scene ('main', () => {
     body (),
     scale (SCALE),
     origin ('center'),
-    pos (20 , 20),
+    pos (1000 , 20),
   ]);
 
   player.action (() => {
