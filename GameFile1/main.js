@@ -1,5 +1,5 @@
 const SPEED = 90;
-const JUMP_FORCE = 300;
+const JUMP_FORCE = 320;
 const FALL_DEATH = 600;
 const SCALE = 1;
 
@@ -10,52 +10,54 @@ scene ('main', () => {
   let score = 0;
 
   const decorations = addLevel(
-    [
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                 ↓                                                      ',
-      '                                    ↓                                        1   2      ',
-      '      >               ^               ↓          ^                                      ',
-      '                 ^                              ^                                       ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
+    [         
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                 ↓                                                               ',
+      '                                    ↓                                        1   2   3           ',
+      '      >               ^               ↓          ^                                               ',
+      '                 ^                              ^                                          32323 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
     ], {
       width:16,
       height: 16,
       '>': () => [sprite ('left-arrow'), origin ('top')],
       '^': () => [sprite ('up-arrow'), origin ('top')],
       '↓': () => [sprite ('down-arrow'), origin ('top')],
-      "1": () => [sprite("enviroment1"), origin("top")],
-      "2": () => [sprite("enviroment2"), origin("top")],
+      "1": () => [sprite("enviroment1"), origin("topleft")],
+      "2": () => [sprite("enviroment2"), origin("topleft")],
+      "3": () => [sprite("enviroment3"), origin("topleft")],
+      "s": () => [sprite("ladder"), origin("center"), area(), "ladder"],
     }
   )
 
   const map = addLevel(
     [
-      '                                                                                        ',
-      '                                                                                      ¢ ',
-      '                                                                                      = ',
-      '                                                                                   =    ',
-      '                             $   ↓                       $$$$                   =       ',
-      '                             =====  ↓             $      b  b                           ',
-      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠------≈    ',
-      '=========        ^  ===               = $ ===   ^=                 ======               ',
-      '          ========                      =     ===                                       ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
+      '                                                                                                 ',
+      '                                                                                      ¢          ',
+      '                                                                                      =          ',
+      '                                                                                   =             ',
+      '                             $   ↓                       $$$$                   =                ',
+      '                             =====  ↓             $      b  b                           f        ',
+      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠----------≈         ',
+      '=========        ^  ===               = $ ===   ^=                 ======                        ',
+      '          ========                      =     ===                                         ≠-----≈',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                   ≠------------≈s',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
+      '                                                                                                 ',
     ],
     {
       width: 16,
@@ -124,7 +126,7 @@ scene ('main', () => {
     body (),
     scale (SCALE),
     origin ('center'),
-    pos (1000 , 20),
+    pos (20 , 20),
   ]);
 
   player.action (() => {
@@ -175,6 +177,7 @@ scene ('main', () => {
       player.jump(JUMP_FORCE);
     }
   });
+
   keyPress('right', () => {
     player.scale.x = SCALE;
   });
@@ -223,7 +226,7 @@ scene ('main', () => {
     });
   }
 
-  // CRAB PART
+  // MOVABLE ENEMIES PART
   const movableMonsters = get("movable-enemy");
   for(const movMon of movableMonsters){
     movMon.limitX = {max: movMon.pos.x - 30, min: movMon.pos.x + 30};

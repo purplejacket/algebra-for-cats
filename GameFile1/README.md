@@ -9,6 +9,7 @@ Fri 24th Sep:
 - Add a new collectible *diamond*
 - Add a new enemy movable bug (yes, now it works)
 - Expand the map
+- Add enviroment (flowers, grass, etc)
 
 Thu 23rd Sep:
 
