@@ -73,10 +73,19 @@
     loadSprite("enviroment1", "sprites/tile_0016.png");
     loadSprite("enviroment2", "sprites/tile_0017.png");
     loadSprite("enviroment3", "sprites/tile_0018.png");
-    loadSprite("ladder", "sprites/tile_0080.png");
+    loadSprite("door", "sprites/door.png", {
+      sliceX: 2,
+      sliceY: 1,
+      anims: {
+        closed: {from: 0, to: 0},
+        opened: {from: 1, to: 1},
+      }
+    });
+    loadSprite("key", "sprites/tile_0096.png");
 
     loadSound("coin", "sounds/coin.wav");
     loadSound("diamond", "sounds/diamond.wav");
+    loadSound("key", "sounds/key.wav");
     loadSound("game-over", "sounds/game-over.wav");
   </script>
   <script src="main.js"></script>
