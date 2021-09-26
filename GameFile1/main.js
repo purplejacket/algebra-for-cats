@@ -10,22 +10,38 @@ scene ('main', () => {
   let score = 0;
   addLevel(
     [
+      '                                                                                        ',
+      '                                              $$$$$$$$$$f$$$$$$$$$$$$$                  ',
+      '                                              ========================      $          ',
+      '                                                                            =====       ',
+      '                                                                                        ',
+      '                                                       =    f  =      ¢            b   ',
+      '                                                 $¢¢   ==================      ======= ',
+      '                                                 ===                                   ',
+      '                                             ====                                      ',
+      '                                          ==                                           ',
+      '                        ===  b   ==                                                    ',
+      '                      ==    ===       === =   ¢                                        ',
+      '           f   ¢    ==                       =========       $                         ',
+      '           ========                                     ==   =    $$$$$$$$$$$$$$$$$$   ',
+      '                                                               ======================  ',
+      '                                                                                       ',
       '                                                                                       ',
       '                                                                                      ¢',
       '                                                                                      =',
-      '                                                                                   =    ',
-      '                             $   ↓                       $$$$                   =       ',
-      '                             =====  ↓             $      b  b                           ',
-      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠------≈    ',
-      '=========        ^  ===               = $ ===   ^=                 ======               ',
-      '          ========                      =     ===                                       ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
-      '                                                                                        ',
+      '                                                                                   =   ',
+      '                             $   ↓                       $$$$                   =      ',
+      '                             =====  ↓             $      b  b                          ',
+      '      >               ^ ====       == ↓   $$$    ^=  = ========  ==   f  == ≠------≈   ',
+      '=========        ^  ===               = $ ===   ^=                 ======              ',
+      '          ========                      =     ===                                      ',
+      '                                                                                       ',
+      '                                                                                       ',
+      '                                                                                       ',
+      '                                                                                       ',
+      '                                                                                       ',
+      '                                                                                       ',
+      '                                                                                       ',
     ],
     {
       width: 16,
@@ -133,25 +149,33 @@ scene ('main', () => {
     console.log('left arrow is down :D')
   });
 
-  keyDown ('space', () => {
+  keyPress ('space', () => {
     if (player.grounded ()) {
       player.jump(JUMP_FORCE);
     }
   });
-  keyDown ('w', () => {
+  keyPress ('up', () => {
     if (player.grounded ()) {
       player.jump(JUMP_FORCE);
     }
   });
-  keyDown ('up', () => {
+  keyPress ('w', () => {
     if (player.grounded ()) {
       player.jump(JUMP_FORCE);
     }
   });
+
   keyPress('right', () => {
     player.scale.x = SCALE;
   });
+  keyPress('d', () => {
+    player.scale.x = SCALE;
+  });
+  
   keyPress('left', () => {
+    player.scale.x *= -SCALE;
+  });
+  keyPress('a', () => {
     player.scale.x *= -SCALE;
   });
 
