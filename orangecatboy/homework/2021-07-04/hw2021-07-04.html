@@ -24,7 +24,7 @@
       <h1>Homework Due July 4th</h1>
       <h2>Happy Independence Day!</h2>
 
-      <h4>3.Use p5js to build something 3D that you haven’t done before.  It could be a rotating donut, or a cat textured onto a cube … whatever creative idea you might have.</h4>
+      <h4>3. Use p5js to build something 3D that you haven’t done before.  It could be a rotating donut, or a cat textured onto a cube … whatever creative idea you might have.</h4>
         <pre><code class="language-js">    
         // this variable will hold our shader object
         let theShader;
@@ -58,36 +58,47 @@
           rect(0,0,width,height);
         }
        </code></pre>
-        <h4>4.Invent 5 or more whacko functions that you haven’t done before, and put them all on the same graph.  Hint:  You’ve done functions plus / times / divided by other functions  … have you tried functions of functions?  Like f(x) = sin(x**2) … see what you can come up with.</h4>
-            <img src = 'funcs.png' width = '500'>
-            const g0 = (x) => x**2;<br>
-            const g8 = (x) => (x/3) ** 2;<br>
-            const g7 = (x) => (x/2) **2;<br>
-            const g6 = (x) => 2/x + x**2;<br>
-            const g4 = (x) => (x/2)**2;<br>
-            const g3 = (x) => x**2-7;<br>
-            const g2 = (x) => (x**2)/7;<br>
-            const g1 = (x) => x**2-x+3;<br>
-                <h4>5.Identify the polynomial functions a, b, c in the screenshot.  Prove that you have the right answer by graphing these using your own graph function.</h4>
-                <img src = 'kaifuncs.png' width = '500'>
-                <h5>a. x**3<br>
-                    b. x**3+4<br>
-                    c. (x-2)**3-x+2</h5>
-                    <h4>6.Today we saw a graph of the function f(x) = (x-1)*(x-2)*(x-3)*(x-4)  — recall that this is a fourth degree polynomial.  Use the distributive property to multiply out those four parenthetical expressions so that you get something of the form f(x) = a*x**4 + b*x**3 + c*x**2 + d*x + e  where a, b, c, d, e are all integers.</h4>
-                            <h5>xxxx-10xxx-35xx-50x-24</h5>
-                            (x-1)*(x-2)
-                            x(x-1)-2(x-1)
-                            xx-x-2x-2
-                            x(xx-x-2x-2)-3(xx-x-2x-2)
-                            xxx-xx-2xx-2x-3xx-3x-6x-6
-                            x(xxx-xx-2xx-2x-3xx-3x-6x-6)-4(xxx-xx-2xx-2x-3xx-3x-6x-6)
-                            xxxx-xxx-2xxx-2xx-3xxx-3xx-6xx-6x-4xxx-4xx-8xx-2x-12xx-12x-24x-24
-                            xxxx-10xxx-35xx-50x-24
+       <img src="codesnippitpic1.png" width="500">
 
-                            
-                        
-    <h4>8.Prepare some functions for the next time we do “guess the function”.   Make them either easy or medium in difficulty.</h4>
-        <h5>Done, but not shown here as that would ruin the surprise</h5>
-      
-      </head>
+        <h4>4. Invent 5 or more whacko functions that you haven’t done before, and put them all on the same graph.  Hint:  You’ve done functions plus / times / divided by other functions  … have you tried functions of functions?  Like f(x) = sin(x**2) … see what you can come up with.</h4>
+        <img src = 'funcs.png' width = '500'>
+        <pre><code class="language-js">    
+        const g0 = (x) => x**2;
+        const g8 = (x) => (x/3) ** 2;
+        const g7 = (x) => (x/2) **2;
+        const g6 = (x) => 2/x + x**2;
+        const g4 = (x) => (x/2)**2;
+        const g3 = (x) => x**2-7;
+        const g2 = (x) => (x**2)/7;
+        const g1 = (x) => x**2-x+3;
+        </code></pre>
+
+        <h4>5. Identify the polynomial functions a, b, c in the screenshot.  Prove that you have the right answer by graphing these using your own graph function.</h4>
+        <img src = 'kaifuncs.png' width = '500'>
+        <pre><code class="language-js">    
+        const a = (x) => x**3+5;
+        const b = (x) => (x-1)*(x-2)*(x-3)*(x-4);
+        const c = (x) => -1*x**2;
+        </code></pre>
+            
+        <img src="3polynomialfuncs.png" width=800>
+
+        <h4>6. Today we saw a graph of the function f(x) = (x-1)*(x-2)*(x-3)*(x-4)  — recall that this is a fourth degree polynomial.  Use the distributive property to multiply out those four parenthetical expressions so that you get something of the form f(x) = a*x**4 + b*x**3 + c*x**2 + d*x + e  where a, b, c, d, e are all integers.</h4>
+        <pre><code class="language-js">    
+        xxxx-10xxx-35xx-50x-24
+        (x-1)*(x-2)
+        x(x-1)-2(x-1)
+        xx-x-2x-2
+        x(xx-x-2x-2)-3(xx-x-2x-2)
+        xxx-xx-2xx-2x-3xx-3x-6x-6
+        x(xxx-xx-2xx-2x-3xx-3x-6x-6)-4(xxx-xx-2xx-2x-3xx-3x-6x-6)
+        xxxx-xxx-2xxx-2xx-3xxx-3xx-6xx-6x-4xxx-4xx-8xx-2x-12xx-12x-24x-24
+        xxxx-10xxx-35xx-50x-24 
+        </code></pre>
+        x<sup>4</sup> - 10x<sup>3</sup> - 35x<sup>2</sup> - 50x - 24
+
+<h4>8. Prepare some functions for the next time we do “guess the function”.   Make them either easy or medium in difficulty.</h4>
+    <h5>Done, but not shown here as that would ruin the surprise.</h5>
+  
+  </head>
 </html>
