@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+<script>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+<style>
+
+    .answer{
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: crimson;
+    }
+    .emphasis{
+          font-family: 'Courier New', Courier, monospace;
+          background-color: rgb(199, 188, 188);
+          color: rgb(255, 0, 0);
+          border-radius: 2pt;
+    }
+
+
+</style>
+<body>
+
+    <h5>2. Individual work:<br>
+    a. Cris:  show a screenshot of that weird function you showed in class on Sunday June 20.  The  one that had Math.random in it, and the graph was mostly above the x-axis but had just a couple points below it.  It had a few bumps in the third quadrant, then in the first quadrant it looked like it went up to positive infinity at three different places.  Please include the definition of the function in your screenshot.<br>
+    b. Alex: Give a code snippet from your Unity game and write an explanation of it.<br>
+    c. Kenneth:  Prove the two difficult cases from the compare function; why does Cris beat Alex with probability = 2/3 and why does Alex beat Kenneth with probability = 2/3?<br>
+    4 4 4 4 0 0 — Kenneth<br>
+    3 3 3 3 3 3 — Kai<br>
+    2 2 2 2 6 6 — Cris<br>
+    1 1 1 5 5 5 — Alex<br></h5>
+
+    <pre><code class="language-js">using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+​
+ public class PlayerController : MonoBehaviour {
+ 
+    public float speed = 1000; // let's set a decent speed as default
+    private Rigidbody rb;
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+    public bool isGrounded;
+     void Start() // Upper case because in C# casing counts!
+     {
+         rb = GetComponent< Rigidbody >();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+     }
+ 
+     void FixedUpdate()
+     {
+         float moveHorizontal = Input.GetAxis("Horizontal");
+         float moveVertical = Input.GetAxis("Vertical");
+         // Let's assign both x and z
+         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        GetComponent< Rigidbody >().AddForce(movement*speed);
+     }
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+​
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+    }
+}</code></pre>
+
+    <h4>6. Easy console.log work.  Write a sentence describing observations.
+    Math.E<br>
+    Math.E * Math.E<br>
+    Math.exp(2)<br>
+    Math.E * Math.E == Math.exp(2)<br>
+    Math.log2(10)<br>
+    Math.log(10)<br>
+    Math.log10(10)<br>
+    googol = 10**100<br>
+    Math.log2(googol)<br>
+    Math.log(googol)<br>
+    Math.log10(googol)<br>
+    Math.log13(googol)    <img src ="pepe-naruto.png" width=10></h4>
+    <h4>7. More console work.  Explain what’s going on here.  What’s the b and what’s the ^. <br>
+    0b0<br>
+    0b1<br>
+    0b10<br>
+    0b11<br>
+    0b100<br>
+    0b101<br>
+    0b110<br>
+    0b111<br>
+    0b111 ^ 0b111<br>
+    0b111 ^ 0b110<br>
+    0b111 ^ 0b101<br>
+    0b111 ^ 0b100<br>
+    0b111 ^ 0b011<br>
+    0b111 ^ 0b010<br>
+    0b111 ^ 0b001<br>
+    0b111 ^ 0b000</h4>
+    <h4>8. What is destructuring in JavaScript?  Read sections 10.1, 10.2, 10.3 of this: <a href = https://exploringjs.com/es6/ch_destructuring.html>this link</a>  Write a paragraph describing destructuring in your own words. Give 3 or more examples preferably from your own code, or, suggest how we could use destructuring to simplify the rock-paper-scissors code we spoke about on Friday June 18 (see the thread here, it’s in a snippet). </h4>
+    <h4>9. Write five crazy cool math functions and put them all on the same graph.</h4>
+        <h4>10. Prepare five easy/medium math functions to graph for our Google Meet version of guess-the-function.</h4>
+
+    <script>
+    </script>
+  </body>
+  </html>
