@@ -109,6 +109,13 @@ using UnityEngine;
     <h4 class="answer">b is binary. ^ subtracts binary code</h4>
     <img src="7.png" width=400>
     <h4>8. What is destructuring in JavaScript?  Read sections 10.1, 10.2, 10.3 of this: <a href = https://exploringjs.com/es6/ch_destructuring.html>this link</a>  Write a paragraph describing destructuring in your own words. Give 3 or more examples preferably from your own code, or, suggest how we could use destructuring to simplify the rock-paper-scissors code we spoke about on Friday June 18 (see the thread here, it’s in a snippet). </h4>
+    <h4 class="answer">Destructuring is used to take things out of arrays and objects. For example,</h4>
+    <pre><code class="language-js">const arr = ['a', 'b'];
+for (const [index, element] of arr.entries()) {
+    console.log(index, element);
+}</code></pre>
+<h4 class="answer">Would give, 0, a, 1, b</h4>
+
     <h4>9. Write five crazy cool math functions and put them all on the same graph.</h4>
     <pre><code class="language-js">const func4 = (x) => 2/x+3;
 const func2 = (x) => x**x**x*x+x/2;
