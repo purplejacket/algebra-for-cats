@@ -16,7 +16,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
 
     .answer{
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-      color: crimson;
+      color: rgb(73, 138, 199);
     }
     .emphasis{
           font-family: 'Courier New', Courier, monospace;
@@ -33,10 +33,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     a. Cris:  show a screenshot of that weird function you showed in class on Sunday June 20.  The  one that had Math.random in it, and the graph was mostly above the x-axis but had just a couple points below it.  It had a few bumps in the third quadrant, then in the first quadrant it looked like it went up to positive infinity at three different places.  Please include the definition of the function in your screenshot.<br>
     b. Alex: Give a code snippet from your Unity game and write an explanation of it.<br>
     c. Kenneth:  Prove the two difficult cases from the compare function; why does Cris beat Alex with probability = 2/3 and why does Alex beat Kenneth with probability = 2/3?<br>
-    4 4 4 4 0 0 — Kenneth<br>
-    3 3 3 3 3 3 — Kai<br>
-    2 2 2 2 6 6 — Cris<br>
-    1 1 1 5 5 5 — Alex<br></h5>
+    <li>4 4 4 4 0 0 — Kenneth</li>
+    <li> 3 3 3 3 3 — Kai</li>
+    <li>2 2 2 2 6 6 — Cris</li>
+    <li>1 1 1 5 5 5 — Alex</li></h5>
+    <h4 class="answer">This controls the player object.</h4>
 
     <pre><code class="language-js">using System.Collections;
 using System.Collections.Generic;
@@ -85,6 +86,9 @@ using UnityEngine;
     Math.log(googol)<br>
     Math.log10(googol)<br>
     Math.log13(googol)    <img src ="pepe-naruto.png" width=10></h4>
+    <h4 class="answer">Math.log13(google) should be around 90, because 10^100 is google, so 13^100 is slightly more.</h4>
+    <img src="6.png" width=400>
+
     <h4>7. More console work.  Explain what’s going on here.  What’s the b and what’s the ^. <br>
     0b0<br>
     0b1<br>
@@ -102,10 +106,20 @@ using UnityEngine;
     0b111 ^ 0b010<br>
     0b111 ^ 0b001<br>
     0b111 ^ 0b000</h4>
+    <h4 class="answer">b is binary. ^ subtracts binary code</h4>
+    <img src="7.png" width=400>
     <h4>8. What is destructuring in JavaScript?  Read sections 10.1, 10.2, 10.3 of this: <a href = https://exploringjs.com/es6/ch_destructuring.html>this link</a>  Write a paragraph describing destructuring in your own words. Give 3 or more examples preferably from your own code, or, suggest how we could use destructuring to simplify the rock-paper-scissors code we spoke about on Friday June 18 (see the thread here, it’s in a snippet). </h4>
     <h4>9. Write five crazy cool math functions and put them all on the same graph.</h4>
-        <h4>10. Prepare five easy/medium math functions to graph for our Google Meet version of guess-the-function.</h4>
+    <pre><code class="language-js">const func4 = (x) => 2/x+3;
+const func2 = (x) => x**x**x*x+x/2;
+const func3 = (x) => 2/2+3/x+2/x+3/4;
+const func5 = (x) => Math.atan();
+const func6 = (x) => Math.random()*Math.random()+2;
+</code></pre>
+    <img src="5funfuncs.png" width=500>
 
+        <h4>10. Prepare five easy/medium math functions to graph for our Google Meet version of guess-the-function.</h4>
+<h4 class="answer">Done, but if I showed them here it would spoil the fun.</h4>
     <script>
     </script>
   </body>
