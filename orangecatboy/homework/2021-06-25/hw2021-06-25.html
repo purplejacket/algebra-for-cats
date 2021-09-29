@@ -18,16 +18,28 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       color: rgb(73, 138, 199);
     }
+    .answer-fixedwidth{
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(73, 138, 199);
+    }
     .emphasis{
           font-family: 'Courier New', Courier, monospace;
           background-color: rgb(199, 188, 188);
           color: rgb(255, 0, 0);
           border-radius: 2pt;
     }
+    .courier{
+        font-family: 'Courier New', Courier, monospace;
+    }
 
 
 </style>
 <body>
+    <h4>Guess the function — see the attached graph.  Hint:  try your guesses on your own graph so that they match up.
+    <li>purple function</li>
+    <li>brown function</li>
+    <li>green function</li>
+    <h1 class="emphasis">X</h1>
 
     <h5>2. Individual work:<br>
     a. Cris:  show a screenshot of that weird function you showed in class on Sunday June 20.  The  one that had Math.random in it, and the graph was mostly above the x-axis but had just a couple points below it.  It had a few bumps in the third quadrant, then in the first quadrant it looked like it went up to positive infinity at three different places.  Please include the definition of the function in your screenshot.<br>
@@ -72,8 +84,24 @@ using UnityEngine;
         }
     }
 }</code></pre>
+<h4>3. Goldbach’s conjecture is one of the oldest and best-known unsolved problems in number theory and all of mathematics. It states that every even whole number greater than 2 is the sum of two prime numbers.<br>
+a. Prove it up to 10.  Easy:
+<li>4 = 2 + 2</li>
+<li>6 = 3 + 3</li>
+<li>8 = 3 + 5</li>
+<li>10 = 3 + 7</li></h4>
+continue the above proof by hand up through the number 30.</h4>
+<h1 class="emphasis">X</h1>
 
-    <h4>6. Easy console.log work.  Write a sentence describing observations.
+<h4>Let’s suppose you wanted to prove this for even numbers up through 1000 … or up through n?  Think about an algorithm that could accomplish this (hint, your algorithm could in turn rely on sieve).  Write down a sentence or two describing how that algorithm would work.</h4>
+<h1 class="emphasis">X</h1>
+
+<h4>Let’s write a function called randomLife.  Start with your graph function in order to draw some graph paper, but omit the x-axis and the y-axis.  Also, we won’t be putting functions on there.  Instead, we will be looking at the squares of your graph, and we will refer to them as “cells”.  We are calling this function randomLife because you will fill the cells with color black when they are alive; and when you draw your grid, look at each cell, calculate Math.random(), and if it’s less than 1/3, mark that cell as alive.  That’s it.  So every time you reload the page it should have a different random setup with approximately 1/3 of the cells alive.</h4>
+<h1 class="emphasis">X</h1>
+
+<h4>Write solve(mathString).  This function will read mathString and solve it.  For now, you can make a very strong simplifying assumption:  mathString will always be of the form "x + y" where x and y are positive integers.  Examples:  "17 + 23", "29999 + 314159".  Also, let’s assume that x and y are both less than Math.MAX_SAFE_INTEGER / 2 so that we don’t have to worry about BigInt.  In short, mathString will always be:  number, space, plus, space, number.  Then perform that computation and return the result.</h4>
+<h1 class="emphasis">X</h1>
+    <h4 class="courier">6. Easy console.log work.  Write a sentence describing observations.<br>
     Math.E<br>
     Math.E * Math.E<br>
     Math.exp(2)<br>
@@ -89,7 +117,7 @@ using UnityEngine;
     <h4 class="answer">Math.log13(google) should be around 90, because 10^100 is google, so 13^100 is slightly more.</h4>
     <img src="6.png" width=400>
 
-    <h4>7. More console work.  Explain what’s going on here.  What’s the b and what’s the ^. <br>
+    <h4 class="courier">7. More console work.  Explain what’s going on here.  What’s the b and what’s the ^. <br>
     0b0<br>
     0b1<br>
     0b10<br>
@@ -108,7 +136,7 @@ using UnityEngine;
     0b111 ^ 0b000</h4>
     <h4 class="answer">b is binary. ^ subtracts binary code</h4>
     <img src="7.png" width=400>
-    <h4>8. What is destructuring in JavaScript?  Read sections 10.1, 10.2, 10.3 of this: <a href = https://exploringjs.com/es6/ch_destructuring.html>this link</a>  Write a paragraph describing destructuring in your own words. Give 3 or more examples preferably from your own code, or, suggest how we could use destructuring to simplify the rock-paper-scissors code we spoke about on Friday June 18 (see the thread here, it’s in a snippet). </h4>
+    <h4>8. What is destructuring in JavaScript?  Read sections 10.1, 10.2, 10.3 of this: <a href="https://exploringjs.com/es6/ch_destructuring.html">https://exploringjs.com/es6/ch_destructuring.html</a>  Write a paragraph describing destructuring in your own words. Give 3 or more examples preferably from your own code, or, suggest how we could use destructuring to simplify the rock-paper-scissors code we spoke about on Friday June 18 (see the thread here, it’s in a snippet). </h4>
     <h4 class="answer">Destructuring is used to take things out of arrays and objects. For example,</h4>
     <pre><code class="language-js">const arr = ['a', 'b'];
 for (const [index, element] of arr.entries()) {
