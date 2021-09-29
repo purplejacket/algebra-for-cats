@@ -676,5 +676,5 @@ scene("thanks", () => {
   ])
 })
 
-go("main", 23);
+go("main", 0);
 focus();
