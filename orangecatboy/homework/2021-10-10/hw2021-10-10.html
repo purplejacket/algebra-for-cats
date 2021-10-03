@@ -113,7 +113,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     
   
   <img src="num4-fs8.png" width=200>
-    <h5>5. Mental math:  Study the table you produced in the last question.  Prepare to say these numbers from memory as an exercise in class.  Use “spaced repetition” -- repeat this study on 3 different days.  On the third day write a sentence with some comments regarding what is easy and what is hard about this exercise.
+    <h5>5. Mental math:  Study the table you produced in the last question.  Prepare to say these numbers from memory as an exercise in class.  Use "spaced repetition" -- repeat this study on 3 different days.  On the third day write a sentence with some comments regarding what is easy and what is hard about this exercise.
   <h4 class="answer">Day 1 and 2 Complete.</h4>
       <h5>6. Write two functions (see below) that depend on Unicode.  In https://gist.github.com/ivandrofly/0fe20773bd712b303f78 you’ll need lines 154, 155, 161 and 614-637.  Run all of the following <span class="emphasis">console.assert</span> commands to make sure your code is correct.  If your code is not correct you will get <span class="emphasis">Assertion failed</span> (correct code will just return undefined ... a little weird, but run with it).<br>
     a. Write a function <span class="emphasis">xToThe(n)</span> that returns a string of x to the n, where n is any integer.  Examples:<br>
@@ -238,21 +238,329 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
   <h5 class="answer">Ok, now some actually new and interesting stuff has been happening. I completely rebooted screeps, other than the actual code. Now I am in Shard 1.</h5>
   <h4 class="answer">Day 3:</h4>
   <img src="day3-fs8.png" width="400">
-  <h4 class="answer">Rebooted again! This time I am in shard 2, and have rebooted my code. Because of this, I am afraid of attacks from tigga.</h4>
+  <h4 class="answer">Rebooted again! This time I am in shard 2, and have rebooted my code. Because of this, I am afraid of attacks from tigga. Also, if you are wondering, there was a small code bug where the spawner didn't spawn creeps for a while, that was around the time I took this screenshot.</h4>
   <h4 class="answer">So, yea overall a lot of fun. I went from being extremley bored, to being excited, to rebooting, to rebooting all of my code.</h4>
+
+  <h4 class="answer">CODE DUN DUN DUUUUUUUUN</h4>
+  <h4 class="answer">Main</h4>
+
+  <pre><code class="language-js">var roleHarvester = require('role.harvester');
+var roleUpgrader = require('role.upgrader');
+var roleBuilder = require('role.builder');
+var roleRepairer = require('role.repairer');
+var roleWR = require('role.wallRepairer');
+var Spawns = require('spawner');
+
+module.exports.loop = function () {
+    for(var name in Memory.creeps) {
+        if(!Game.creeps[name]) {
+            delete Memory.creeps[name];
+            console.log('Clearing non-existing creep memory:', name);
+        }
+    }
+    var tower = Game.getObjectById('TOWER_ID');
+    if(tower) {
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => structure.hits < structure.hitsMax
+        });
+        if(closestDamagedStructure) {
+            tower.repair(closestDamagedStructure);
+        }
+
+        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(closestHostile) {
+            tower.attack(closestHostile);
+        }
+        
+        var closestDamagedCreep = tower.pos.findClosestByRange(FIND_MY_CREEPS, {filter: (creep) => creep.hits < creep.hitsMax});
+    }
+        let creepsInRoom = Game.spawns.Spawn1.room.find(FIND_MY_CREEPS);
+        var h = _.sum(creepsInRoom, (c) => c.memory.role == 'harvester');
+        var u = _.sum(creepsInRoom, (c) => c.memory.role == 'upgrader');
+        var b = _.sum(creepsInRoom, (c) => c.memory.role == 'builder');
+        var r = _.sum(creepsInRoom, (c) => c.memory.role == 'repairer');
+        var wR = _.sum(creepsInRoom, (c) => c.memory.role == 'wallRepairer');
+        var dm = _.sum(creepsInRoom, (c) => c.memory.role == 'drop miner');
+        var bodyparts = [WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE]
+        if (h < 1){
+            Game.spawns.Spawn1.spawnCreep([WORK,CARRY,MOVE], 'savior' + Math.round(Math.random()*20).toString(), {memory: {role: 'harvester', working: true}});
+        }
+        else if (h < 3){
+            Game.spawns.Spawn1.spawnCreep(bodyparts, 'h' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'harvester', working: true}});
+        }
+        else if (u < Game.spawns.Spawn1.memory.minUpgraders){
+            Game.spawns.Spawn1.spawnCreep(bodyparts, 'u' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'upgrader', working: true}});
+        }
+        else if (b < Game.spawns.Spawn1.memory.minBuilders){
+            Game.spawns.Spawn1.spawnCreep(bodyparts, 'b' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'builder', working: true}});
+        }
+        else if (r < Game.spawns.Spawn1.memory.minRepairers){
+            Game.spawns.Spawn1.spawnCreep(bodyparts, 'r' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'repairer', working: true}});
+        }
+        else if (wR < 2){
+            Game.spawns.Spawn1.spawnCreep(bodyparts, 'wR' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'wallRepairer', working: true}});
+        }
+        else if (dm < 2){
+            Game.spawns.Spawn1.spawnCreep([WORK,WORK,WORK,WORK,WORK,MOVE], 'dm' + Math.round(Math.random()*1029302).toString(), {memory: {role: 'drop miner'}});
+        }
+        
+        // Spawns.play();
+
+    for(var name in Game.creeps) {
+        var creep = Game.creeps[name];
+        if(creep.memory.role == 'harvester') {
+            roleHarvester.run(creep);
+        }
+        if(creep.memory.role == 'upgrader') {
+            roleUpgrader.run(creep);
+        }
+        if(creep.memory.role == 'builder') {
+            roleBuilder.run(creep);
+        }
+        if(creep.memory.role == 'repairer') {
+            roleRepairer.run(creep);
+        }
+        if(creep.memory.role == 'drop miner') {
+            roleRepairer.run(creep);
+        }
+        if(creep.memory.role == 'wallRepairer') {
+            roleWR.run(creep);
+        }
+    }
+};</code></pre>
+<h4 class="answer">builder</h4>
+<pre><code class="language-js">  var h = require('role.harvester');
+  var roleBuilder = {
+  
+      /** @param {Creep} creep **/
+      run: function(creep) {
+  
+          if(creep.memory.building && creep.store[RESOURCE_ENERGY] == 0) {
+              creep.memory.building = false;
+              creep.say('🔄 harvest');
+          }
+          if(!creep.memory.building && creep.store.getFreeCapacity() == 0) {
+              creep.memory.building = true;
+              creep.say('🚧 build');
+          }
+  
+          if(creep.memory.building) {
+              var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+              if(targets.length) {
+                  if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
+                      creep.moveTo(targets[0]);
+                  }
+              }
+              else{
+                  h.run(creep);
+              }
+          }
+          else {
+              var sources = creep.room.find(FIND_SOURCES);
+              if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+                  creep.moveTo(sources[0]);
+              }
+          }
+      }
+  };
+  
+  module.exports = roleBuilder;</code></pre>
+  <h4 class="answer">harvester</h4>
+<pre><code class="language-js">  var roleUpgrader = require('role.upgrader');
+
+  var roleHarvester = {
+      run: function(creep){
+          if(creep.memory.harvesting && creep.store.getFreeCapacity(RESOURCE_ENERGY) == 0){
+              creep.memory.harvesting = false;
+              creep.say('🔄');
+          }else if(!creep.memory.harvesting && creep.store[RESOURCE_ENERGY] == 0){
+              creep.memory.harvesting = true;
+              creep.say('🌾');
+          }
+          
+          if(creep.memory.harvesting){
+              var droppedResource = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES);
+              if (droppedResource){
+                  creep.pickup(droppedResource);
+              }
+              var closestSource = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+              var e = creep.harvest(closestSource);
+              if(e == ERR_NOT_IN_RANGE){
+                  creep.moveTo(closestSource);
+              }       
+          }else{
+              var target = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+                  filter: (s) => (s.structureType == STRUCTURE_SPAWN 
+                                   || s.structureType == STRUCTURE_EXTENSION
+                                   || s.structureType == STRUCTURE_TOWER)
+                                   && s.store.getFreeCapacity(RESOURCE_ENERGY) > 0
+              });
+              if(target){
+                  var e = creep.transfer(target, RESOURCE_ENERGY);
+                  if(e == ERR_NOT_IN_RANGE){
+                      creep.moveTo(target);
+                  }
+              }else {
+                  roleUpgrader.run(creep);
+              }
+          }
+      }
+  };
+  module.exports = roleHarvester;</code></pre>
+  <h4 class="answer">repairer</h4>
+<pre><code class="language-js">  var roleBuilder = require('role.builder');
+
+  module.exports = {
+      // a function to run the logic for this role
+      run: function(creep) {
+          // if creep is trying to repair something but has no energy left
+          if (creep.memory.working == true && creep.carry.energy == 0) {
+              // switch state
+              creep.memory.working = false;
+          }
+          // if creep is harvesting energy but is full
+          else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
+              // switch state
+              creep.memory.working = true;
+          }
+  
+          // if creep is supposed to repair something
+          if (creep.memory.working == true) {
+              // find closest structure with less than max hits
+              // Exclude walls because they have way too many max hits and would keep
+              // our repairers busy forever. We have to find a solution for that later.
+              var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+                  // the second argument for findClosestByPath is an object which takes
+                  // a property called filter which can be a function
+                  // we use the arrow operator to define it
+                  filter: (s) => s.hits < s.hitsMax && s.structureType != STRUCTURE_WALL
+              });
+  
+              // if we find one
+              if (structure != undefined) {
+                  // try to repair it, if it is out of range
+                  if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
+                      // move towards it
+                      creep.moveTo(structure);
+                  }
+              }
+              // if we can't fine one
+              else {
+                  // look for construction sites
+                  roleBuilder.run(creep);
+              }
+          }
+          // if creep is supposed to harvest energy from source
+          else {
+              // find closest source
+              var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+              // try to harvest energy, if the source is not in range
+              if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                  // move towards the source
+                  creep.moveTo(source);
+              }
+          }
+      }
+  };</code></pre>
+  <h4 class="answer">upgrader</h4>
+<pre><code class="language-js">        var roleUpgrader = {
+
+          /** @param {Creep} creep **/
+          run: function(creep) {
+      
+              if(creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
+                  creep.memory.upgrading = false;
+                  creep.say('harvest 🍔');
+              }
+              if(!creep.memory.upgrading && creep.store.getFreeCapacity() == 0) {
+                  creep.memory.upgrading = true;
+                  creep.say('upgrade ⚡️');
+              }
+      
+              if(creep.memory.upgrading) {
+                  if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+                      creep.moveTo(creep.room.controller);
+                  }
+              }
+              else {
+                  var sources = creep.room.find(FIND_SOURCES);
+                  if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+                      creep.moveTo(sources[0]);
+                  }
+              }
+          }
+      };
+      
+      module.exports = roleUpgrader;</code></pre>
+      <h4 class="answer">wallRepairer</h4>
+<pre><code class="language-js">  var roleBuilder = require('role.builder');
+
+  module.exports = {
+      // a function to run the logic for this role
+      run: function(creep) {
+          // if creep is trying to repair something but has no energy left
+          if (creep.memory.working == true && creep.carry.energy == 0) {
+              // switch state
+              creep.memory.working = false;
+          }
+          // if creep is harvesting energy but is full
+          else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
+              // switch state
+              creep.memory.working = true;
+          }
+  
+          // if creep is supposed to repair something
+          if (creep.memory.working == true) {
+              // find closest structure with less than max hits
+              // Exclude walls because they have way too many max hits and would keep
+              // our repairers busy forever. We have to find a solution for that later.
+              var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+                  // the second argument for findClosestByPath is an object which takes
+                  // a property called filter which can be a function
+                  // we use the arrow operator to define it
+                  filter: (s) => s.hits < s.hitsMax && s.structureType == STRUCTURE_WALL
+              });
+  
+              // if we find one
+              if (structure != undefined) {
+                  // try to repair it, if it is out of range
+                  if (creep.repair(structure) == ERR_NOT_IN_RANGE) {
+                      // move towards it
+                      creep.moveTo(structure);
+                  }
+              }
+              // if we can't fine one
+              else {
+                  // look for construction sites
+                  roleBuilder.run(creep);
+              }
+          }
+          // if creep is supposed to harvest energy from source
+          else {
+              // find closest source
+              var source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
+              // try to harvest energy, if the source is not in range
+              if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
+                  // move towards the source
+                  creep.moveTo(source);
+              }
+          }
+      }
+  };
+</code></pre>
   <h5>10. Zombie Flexbox game.  Go through two more levels.  Take two screenshots at interesting moments and explain all of the Flex details you are working on.</h5>
   <h4 class="answer">I think the second image pretty much explains every new thing I have found. display: flex to turn it on, justify-content to aim, align-items to align them, and align-self to single out one. Also, the levels here are 3.9 and 3.10</h4>
     <img src="f3.png" width="300"><img src="f4.png" width="300">
-    <h5>11. What is “nullish coalescing”, the new operator <span class="emphasis">??</span> introduced into JavaScript in the year 2020?  Do some research/reading, then explain these:<br>
-  A. x = null; y = x ?? “hello”;<br>
-  B. x = undefined; y = x ?? “hello”;<br>
-  C. x = 3.14; y = x ?? “hello”;<br>
-  D. x = false; y = x ?? “hello”;<br>
-  E. x = NaN; y = x ?? “hello”;<br>
-  F. x = “”; y = x ?? “hello”;<br>
-  G. x = []; y = x ?? “hello”;<br>
-  H. x = 0; y = x ?? “hello”;<br>
-  I. x = {}; y = x ?? “hello”;<br>
+    <h5>11. What is "nullish coalescing", the new operator <span class="emphasis">??</span> introduced into JavaScript in the year 2020?  Do some research/reading, then explain these:<br>
+  A. x = null; y = x ?? "hello";<br>
+  B. x = undefined; y = x ?? "hello";<br>
+  C. x = 3.14; y = x ?? "hello";<br>
+  D. x = false; y = x ?? "hello";<br>
+  E. x = NaN; y = x ?? "hello";<br>
+  F. x = ""; y = x ?? "hello";<br>
+  G. x = []; y = x ?? "hello";<br>
+  H. x = 0; y = x ?? "hello";<br>
+  I. x = {}; y = x ?? "hello";<br>
   <h4 class="answer">The ?? operator (or nullish coalescing) is as follows:
     If the first parameter is any falsy value, it becomes the second parameter. If it is truthy then it chooses that first parameter.</h4>
   <h5>12. Go to the Tensorflow Playground -- <a href="https://playground.tensorflow.org">https://playground.tensorflow.org</a> -- and solve each of the four datasets.  Take a screenshot of each solution.  Discuss.
