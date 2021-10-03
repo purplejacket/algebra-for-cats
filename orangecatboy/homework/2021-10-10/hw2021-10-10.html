@@ -54,7 +54,55 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
   pngquant coolFuncs.png
   ls -l coolFuncs*
   </code></pre>
-  <h4 class="answer">done</h4>
+  <h4 class="answer">√</h4>
+  <pre>➜  desktop brew install pngquant
+    Updating Homebrew...
+    ==> Auto-updated Homebrew!
+    Updated 2 taps (homebrew/core and homebrew/cask).
+    ==> New Formulae
+    clickhouse-odbc                          texlive
+    ==> Updated Formulae
+    Updated 137 formulae.
+    ==> Updated Casks
+    Updated 84 casks.
+    
+    ==> Downloading https://ghcr.io/v2/homebrew/core/pngquant/manifests/2.15.1
+    Already downloaded: /Users/dancedude/Library/Caches/Homebrew/downloads/8d940b411de4c9ea9dea6691e1eac8f0aaa125a90b7f45bebce581e31c1223ac--pngquant-2.15.1.bottle_manifest.json
+    ==> Downloading https://ghcr.io/v2/homebrew/core/pngquant/blobs/sha256:ed5a067fe
+    Already downloaded: /Users/dancedude/Library/Caches/Homebrew/downloads/81a6a77e82ca3df9a473084661c6a81cafb3e778eb8f9560b3aeac039db518f9--pngquant--2.15.1.arm64_big_sur.bottle.tar.gz
+    ==> Pouring pngquant--2.15.1.arm64_big_sur.bottle.tar.gz
+    🍺  /opt/homebrew/Cellar/pngquant/2.15.1: 7 files, 177.9KB
+    ➜  desktop pngquant --help
+    pngquant, 2.15.1 (May 2021), by Kornel Lesinski, Greg Roelofs.
+       Color profiles are supported via Little CMS. Using libpng 1.6.37.
+    
+    usage:  pngquant [options] [ncolors] -- pngfile [pngfile ...]
+            pngquant [options] [ncolors] - >stdout &lt; stdin
+    
+    options:
+      --force           overwrite existing output files (synonym: -f)
+      --skip-if-larger  only save converted files if they're smaller than original
+      --output file     destination file path to use instead of --ext (synonym: -o)
+      --ext new.png     set custom suffix/extension for output filenames
+      --quality min-max don't save below min, use fewer colors below max (0-100)
+      --speed N         speed/quality trade-off. 1=slow, 4=default, 11=fast & rough
+      --nofs            disable Floyd-Steinberg dithering
+      --posterize N     output lower-precision color (e.g. for ARGB4444 output)
+      --strip           remove optional metadata (default on Mac)
+      --verbose         print status messages (synonym: -v)
+    
+    Quantizes one or more 32-bit RGBA PNGs to 8-bit (or smaller) RGBA-palette.
+    The output filename is the same as the input name except that
+    it ends in "-fs8.png", "-or8.png" or your custom extension (unless the
+    input is stdin, in which case the quantized image will go to stdout).
+    If you pass the special output path "-" and a single input file, that file
+    will be processed and the quantized image will go to stdout.
+    The default behavior if the output file exists is to skip the conversion;
+    use --force to overwrite. See man page for full list of options.
+    ➜  desktop pngquant test.png                                              
+    ➜  desktop ls -l test* 
+    -rw-r--r--  1 dancedude  staff  1555351 Oct  3 11:05 test-fs8.png
+    -rw-r--r--@ 1 dancedude  staff  5355796 Oct  3 11:03 test.png</pre>
   <h5>3. For the homework that was due June 25, turn it into an html file with associated image files.  Take a screenshot and put that as your answer here.  Remember:  use <span class="emphasis">pngquant</span> to compress the screenshot.
   <img src="3-fs8.png" width=700>
     <h5>4. Easy console work:
@@ -73,7 +121,52 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
       II. <span class="emphasis">console.assert(xToThe(370) == "x³⁷⁰")</span><br>
       III. <span class="emphasis">console.assert(xToThe(-5) == "x⁻⁵")</span><br>
       IV. <span class="emphasis">console.assert(xToThe(1234567890) == "x¹²³⁴⁵⁶⁷⁸⁹⁰"</span><br>
-    b. Write a function <span class="emphasis">xSub(n)</span> that returns a string of x with a subscript of n, where n is a non-negative integer.  Examples:<br>
+      <pre><code class="language-js">    
+      function xToThe(n) {
+        var output = 'x';
+        var nstr = n.toString();
+        for (i=0; i < nstr.length; i++){
+            switch(nstr[i]) {
+              case '-':
+                output=output+'⁻'
+                break;
+              case '0':
+                output=output+'⁰';
+                break;
+              case '1':
+                output=output+'¹';
+                break;
+              case '2':
+                output=output+'²';
+                break;
+              case '3':
+                output=output+'³';
+                break;
+              case '4':
+                output=output+'⁴';
+                break;
+              case '5':
+                output=output+'⁵';
+                break;
+              case '6':
+                output=output+'⁶';
+                break;
+              case '7':
+                output=output+'⁷';
+                break;
+              case '8':
+                output=output+'⁸';
+                break;
+              case '9':
+                output=output+'⁹';
+                break;
+            }
+        }
+        return output;
+    }
+    </code></pre>
+    <img src='assertions6a.png' width="400">
+      b. Write a function <span class="emphasis">xSub(n)</span> that returns a string of x with a subscript of n, where n is a non-negative integer.  Examples:<br>
       I. <span class="emphasis">console.assert(xSub(0) == "x₀");</span><br>
       II. <span class="emphasis">console.assert(xSub(4) == "x₄");</span><br>
       III. <span class="emphasis">console.assert(xSub(678) == "x₆₇₈");</span><br>
