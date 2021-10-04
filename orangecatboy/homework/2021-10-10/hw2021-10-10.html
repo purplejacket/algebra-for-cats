@@ -114,7 +114,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
   
   <img src="num4-fs8.png" width=200>
     <h5>5. Mental math:  Study the table you produced in the last question.  Prepare to say these numbers from memory as an exercise in class.  Use "spaced repetition" -- repeat this study on 3 different days.  On the third day write a sentence with some comments regarding what is easy and what is hard about this exercise.
-  <h4 class="answer">Day 1 and 2 Complete.</h4>
+  <h4 class="answer">Day 1, 2, and 3 Complete.</h4>
       <h5>6. Write two functions (see below) that depend on Unicode.  In https://gist.github.com/ivandrofly/0fe20773bd712b303f78 you’ll need lines 154, 155, 161 and 614-637.  Run all of the following <span class="emphasis">console.assert</span> commands to make sure your code is correct.  If your code is not correct you will get <span class="emphasis">Assertion failed</span> (correct code will just return undefined ... a little weird, but run with it).<br>
     a. Write a function <span class="emphasis">xToThe(n)</span> that returns a string of x to the n, where n is any integer.  Examples:<br>
       I. <span class="emphasis">console.assert(xToThe(12) == "x¹²")</span><br>
@@ -165,6 +165,50 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         return output;
     }
     </code></pre>
+    <pre><code class="language-js">      function xSub(n) {
+        var output = 'x';
+        var nstr = n.toString();
+        for (i=0; i < nstr.length; i++){
+            switch(nstr[i]) {
+              case '-':
+                output=output+'₋'
+                break;
+              case '0':
+                output=output+'₀';
+                break;
+              case '1':
+                output=output+'₁';
+                break;
+              case '2':
+                output=output+'₂';
+                break;
+              case '3':
+                output=output+'₃';
+                break;
+              case '4':
+                output=output+'₄';
+                break;
+              case '5':
+                output=output+'₅';
+                break;
+              case '6':
+                output=output+'₆';
+                break;
+              case '7':
+                output=output+'₇';
+                break;
+              case '8':
+                output=output+'₈';
+                break;
+              case '9':
+                output=output+'₉';
+                break;
+            }
+        }
+        return output;
+    }
+</code></pre>
+<img src="assertionsb-fs8.png" width="700">
     <img src='assertions6a.png' width="400">
       b. Write a function <span class="emphasis">xSub(n)</span> that returns a string of x with a subscript of n, where n is a non-negative integer.  Examples:<br>
       I. <span class="emphasis">console.assert(xSub(0) == "x₀");</span><br>
@@ -179,7 +223,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
   F. A graph with five degree 5 polynomial functions<br>
 
   A.
-  <pre><code class="language-js">const a = (x) => 1;
+  <pre><code class="language-js">   const a = (x) => 1;
   const b = (x) => 2;
   const c = (x) => 3;
   const d = (x) => 4;
@@ -187,44 +231,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
   </code></pre>
   <img src="71-fs8.png" width="400">
   B.
-  <pre><code class="language-js">const a = (x) => 2*x+1;
+  <pre><code class="language-js">   const a = (x) => 2*x+1;
   const b = (x) => 1/2*x+2;
   const c = (x) => 4*3+1;
   const d = (x) => 9*x+4;
   const e = (x) => -x+5;</code></pre>
   <img src="72-fs8.png" width="400">
   C.
-  <pre><code class="language-js">const a = (x) => 2*x^2 + 2*x+1;
+  <img src="xy-fs8.png" width="500">
+  <pre><code class="language-js">   const a = (x) => 2*x^2 + 2*x+1;
   const b = (x) => 2*x^2 + 1/2*x+2;
   const c = (x) => 2*x^2 +4*3+1;
   const d = (x) => 2*x^2 +9*x+4;
   const e = (x) => 2*x^2 + -x+5;</code></pre>
   <img src="73-fs8.png" width="400">
   D.
-  <pre><code class="language-js">const a = (x) => 7*x^3 + 2*x^2 + 2*x+1;
+  <pre><code class="language-js">   const a = (x) => 7*x^3 + 2*x^2 + 2*x+1;
   const b = (x) => 7*x^3 + 2*x^2 + 1/2*x+2;
   const c = (x) => 7*x^3 + 2*x^2 +4*3+1;
   const d = (x) => 7*x^3 + 2*x^2 +9*x+4;
   const e = (x) => 7*x^3 + 2*x^2 + -x+5;</code></pre>
   <img src="74-fs8.png" width="400">
   E.
-  <pre><code class="language-js">const a = (x) => 8*x^4 + 7*x^3 + 2*x^2 + 2*x+1;
+  <pre><code class="language-js">   const a = (x) => 8*x^4 + 7*x^3 + 2*x^2 + 2*x+1;
   const b = (x) => 8*x^4 + 7*x^3 + 2*x^2 + 1/2*x+2;
   const c = (x) => 8*x^4 + 7*x^3 + 2*x^2 +4*3+1;
   const d = (x) => 8*x^4 + 7*x^3 + 2*x^2 +9*x+4;
   const e = (x) => 8*x^4 + 7*x^3 + 2*x^2 + -x+5;</code></pre>
   <img src="75-fs8.png" width="400">
   F.
-  <pre><code class="language-js">const a = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 + 2*x+1;
+  <pre><code class="language-js">   const a = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 + 2*x+1;
   const b = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 + 1/2*x+2;
   const c = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 +4*3+1;
   const d = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 +9*x+4;
   const e = (x) => 4*x^5 + 8*x^4 + 7*x^3 + 2*x^2 + -x + 5;</code></pre>
-  <img src="76-fs8.png" width="400">
   <h5>8. Write 5 creative and complicated functions and put them all on the same graph.  This time two simple rules:<br>
   A. no pure polynomial functions<br>
   B. no use of <span class="emphasis">Math.random</span><br>
   <img src="My5funcs-fs8.png" width="400">
+  Unfortunatly, I couldent find the functions I used for this.
+  <img src="Funkyfuncs-fs8.png" width="400">
+  <pre><code class="language-js">
+    const a = (x) => Math.sin(x*2);
+    const b = (x) => Math.tan(a(x));
+    const c = (x) => b(x) + a(x);
+    const d = (x) => a(b(c(x)));
+    const e = (x) => x**x;
+      </code></pre>
   <h5>9. Screeps update:<br>
   A. Show a screenshot of Screeps and describe what’s going on<br>
   B. 2 days later:  show another screenshot, and describe what has changed<br>
