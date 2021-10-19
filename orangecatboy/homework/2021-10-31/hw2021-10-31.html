@@ -1,21 +1,40 @@
-Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.
-Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.
-cd to your October 10 homework directory
-run http-server  -- now your terminal tab is busy, so ...
-open a new Terminal tab with command-T
-npm install -g pageres-cli
-pageres --help
-pageres http://127.0.0.1:8080/hw2021-10-10.html
-ls -l 127*
-pngquant 127*
-ls -l 127*
-rm 127*
-For the homework that was due June 18, turn it into an html file with associated image files.  Use pageres to make an image of that file and include it as your answer here.  And don't forget to use pngquant as well!
-Easy console work, plus a "discuss" question:
-const Dog = { barks: true }
+  
+<html>
+    <head>
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+    />
+      <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+      <script>
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+      <style>
+          h4{
+              color:rgb(0, 0, 0);
+          }
+      </style>
+
+<h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
+<h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.<br>
+cd to your October 10 homework directory<br>
+run http-server  -- now your terminal tab is busy, so ...<br>
+open a new Terminal tab with command-T<br>
+npm install -g pageres-cli<br>
+pageres --help<br>
+pageres http://127.0.0.1:8080/hw2021-10-10.html<br>
+ls -l 127*<br>
+pngquant 127*<br>
+ls -l 127*<br>
+rm 127*</h4>
+<h4>3. For the homework that was due June 18, turn it into an html file with associated image files.  Use pageres to make an image of that file and include it as your answer here.  And don't forget to use pngquant as well!</h4>
+<h4>4. Easy console work, plus a "discuss" question:<h4>
+<pre><code class="language-js">const Dog = { barks: true }
 const Pug = Object.create(Dog)
 Pug.barks
 // what's going on here?  Hint:  mdn prototypal inheritance
+</code></pre>
+
 Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.
 Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.
 Create a graph containing six 6th degree polynomials, with the following extra rules:
@@ -50,3 +69,6 @@ Cris and Alex can work together in the same game
 You can work in replit and deploy it with surge
 Take some screenshots of the game and some snippet of the code
 Write some observations about it
+    
+    </head>
+</html>
