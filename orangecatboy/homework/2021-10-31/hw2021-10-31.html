@@ -1,15 +1,15 @@
   
 <html>
     <head>
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
-    />
-      <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
-      <script>
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
-      <style>
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+        <script>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>      
+        <style>
           h5{
               color:rgb(209, 101, 186);
           }
@@ -31,6 +31,8 @@
 
 <h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
 
+<h5>There are infinitely many twin primes simply because their are infinitely many regular primes.</h5>
+
 <h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.<br>
     <ol type="a">
 <li>cd to your October 10 homework directory
@@ -43,6 +45,29 @@
 <li>pngquant 127*
 <li>ls -l 127*
 <li>rm 127*</ol></h4>
+
+<h5>so... this is unfortunate, there is an error and I am not sure what it means.</h5>
+
+<pre><code class="language-js">npm ERR! code 1
+npm ERR! path /Users/dancedude/.nvm/versions/node/v15.12.0/lib/node_modules/pageres-cli/node_modules/puppeteer
+npm ERR! command failed
+npm ERR! command sh -c node install.js
+npm ERR! The chromium binary is not available for arm64: 
+npm ERR! If you are on Ubuntu, you can install with: 
+npm ERR! 
+npm ERR!  apt-get install chromium-browser
+npm ERR! 
+npm ERR! /Users/dancedude/.nvm/versions/node/v15.12.0/lib/node_modules/pageres-cli/node_modules/puppeteer/lib/cjs/puppeteer/node/BrowserFetcher.js:112
+npm ERR!             throw new Error();
+npm ERR!             ^
+npm ERR! 
+npm ERR! Error
+npm ERR!     at /Users/dancedude/.nvm/versions/node/v15.12.0/lib/node_modules/pageres-cli/node_modules/puppeteer/lib/cjs/puppeteer/node/BrowserFetcher.js:112:19
+npm ERR!     at FSReqCallback.oncomplete (node:fs:193:21)
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /Users/dancedude/.npm/_logs/2021-10-23T18_59_12_140Z-debug.log
+</code></pre>
 
 <h4>3. For the homework that was due June 18, turn it into an html file with associated image files.  Use pageres to make an image of that file and include it as your answer here.  And don't forget to use pngquant as well!</h4>
 
@@ -89,7 +114,19 @@ Pug.barks
 </ol>
 </h4>
 
+<h5><ol type="a">
+<li>This screenshot was taken just after I had been attacked by... TIGGAAAAAAA!!!!!!!!</li>
+<img src="attack.png" width="300">
+</ol></h5>
+
 <h4>10. Zombie Flexbox game. Go through two more levels. Take two screenshots at interesting moments and explain all of the Flex details you are working on.</h4>
+
+<h5>display: flex to turn it on<br>
+flex-direction: to set where it fires<br>
+align-items/align-self: to set the exact alignment</h5>
+<img src="f.png">
+
+<img src="ff.png">
 
 <h4>11. Write a function xPlusOneToThe(n) that takes a positive integer n and returns the polynomial expansion of (x+1)ⁿ.  Show your code plus a screenshot with these 4 assertions passing, and show the result of the fifth expression.
 <ol type="a">
@@ -102,7 +139,7 @@ Pug.barks
 </h4>
 
 <h4>12. Write an original kaboom game from scratch.
-<ol>
+<ol type="a">
 <li>Cris and Alex can work together in the same game</li>
 <li>You can work in replit and deploy it with surge</li>
 <li>Take some screenshots of the game and some snippet of the code</li>
@@ -110,6 +147,9 @@ Pug.barks
 </ol>
 </h4>
 
-<h5>Working</h5>
+<h5><ol type="a">
+<li>Obzervationes: So, my only one so far is that loading sprites is really annoying.</li>
+</ol></h5>
+
     </head>
 </html>
