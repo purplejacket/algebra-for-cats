@@ -36,7 +36,7 @@ scene("main", (levelInx) => {
     },
     "s": {
       sprite: "npc5",
-      msg: "someone released the ghosts captured by the mage, they terrify me",
+      msg: "someoźe released the ghosts captured by the mage, they terrify me",
       name: "servant",
       textsize: 8,
     },

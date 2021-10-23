@@ -10,24 +10,42 @@
       </script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
       <style>
-          h4{
-              color:rgb(0, 0, 0);
+          h5{
+              color:rgb(209, 101, 186);
           }
+          kbd {
+            background-color: #eee;
+            border-radius: 3px;
+            border: 1px solid #b4b4b4;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: .85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 2px 4px;
+            white-space: nowrap;
+        }
+
       </style>
 
 <h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
+
 <h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.<br>
-cd to your October 10 homework directory<br>
-run http-server  -- now your terminal tab is busy, so ...<br>
-open a new Terminal tab with command-T<br>
-npm install -g pageres-cli<br>
-pageres --help<br>
-pageres http://127.0.0.1:8080/hw2021-10-10.html<br>
-ls -l 127*<br>
-pngquant 127*<br>
-ls -l 127*<br>
-rm 127*</h4>
+    <ol type="a">
+<li>cd to your October 10 homework directory
+    <li>run http-server  -- now your terminal tab is busy, so ...
+        <li>open a new Terminal tab with <kbd>⌘</kbd> + <kbd>T</kbd>
+<li>npm install -g pageres-cli
+<li>pageres --help
+<li>pageres http://127.0.0.1:8080/hw2021-10-10.html
+<li>ls -l 127*
+<li>pngquant 127*
+<li>ls -l 127*
+<li>rm 127*</ol></h4>
+
 <h4>3. For the homework that was due June 18, turn it into an html file with associated image files.  Use pageres to make an image of that file and include it as your answer here.  And don't forget to use pngquant as well!</h4>
+
 <h4>4. Easy console work, plus a "discuss" question:<h4>
 <pre><code class="language-js">const Dog = { barks: true }
 const Pug = Object.create(Dog)
@@ -35,40 +53,63 @@ Pug.barks
 // what's going on here?  Hint:  mdn prototypal inheritance
 </code></pre>
 
-Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.
-Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.
-Create a graph containing six 6th degree polynomials, with the following extra rules:
-Have your x-axis and y-axis range from -15 through +15 (length of 30)
-None of your functions can be too steep!  So:
-Hopefully you don't see dotted lines
-Every function must have some width to it -- for example f(x) = x**6 is bad, but g(x) = 0.0001*x**6 is good.
-No local minima or maxima can can go outside the window!
-Create some space between the functions; they shouldn't be "on top" of each other too much 
-Your functions should wind up and down
-See the example image to see an example result.  Also, we will discuss all this, and clarify any questions.
-Hint:  Try playing in Desmos first:  https://www.desmos.com/calculator
-Write 5 miraculous, delirious, floating, rhythmical, stimulating, poetic, cultivated, mystical, sensitive functions and put them all on the same graph. Constraints:
-Only use these things to make your functions:  sin + *
-Numbers are ok too (or challenge yourself and go numberless)
-Function composition is ok (and encouraged! ... use it a lot!)
-Screeps update:
-Show a screenshot of Screeps and describe what’s going on
-2 days later: show another screenshot, and describe what has changed
-3 days after that: show a third screenshot, describe what has changed,
-Write a summary describing the whole arc of what happened.  Include a few interesting code samples and explain them.
-:screeps:  :screeps-muscle:  :screeps-battery:  :creep-with-a-room-controller:  :creeps-attacking-a-power-bank:  :creeps-battle:  :creeps-rampart-attacking-method:  :operator-creep:  :powered-creep:
-Zombie Flexbox game. Go through two more levels. Take two screenshots at interesting moments and explain all of the Flex details you are working on.
-Write a function xPlusOneToThe(n) that takes a positive integer n and returns the polynomial expansion of (x+1)ⁿ.  Show your code plus a screenshot with these 4 assertions passing, and show the result of the fifth expression.
-console.assert(xPlusOneToThe(1) == "x + 1")
-console.assert(xPlusOneToThe(2) == "x² + 2x + 1")
-console.assert(xPlusOneToThe(3) == "x³ + 3x² + 3x + 1")
-console.assert(xPlusOneToThe(10) == "x¹⁰ + 10x⁹ + 45x⁸ + 120x⁷ + 210x⁶ + 252x⁵ + 210x⁴ + 120x³ + 45x² + 10x + 1")
-xPlusOneToThe(100)
-Write an original kaboom game from scratch.
-Cris and Alex can work together in the same game
-You can work in replit and deploy it with surge
-Take some screenshots of the game and some snippet of the code
-Write some observations about it
-    
+<h4>5. Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.</h4>
+
+<h4>6. Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.</h4>
+
+<h4>7. Create a graph containing six 6th degree polynomials, with the following extra rules:
+<ol type="a">
+<li>Have your x-axis and y-axis range from -15 through +15 (length of 30)</li>
+<li>None of your functions can be too steep!  So:</li>
+<ol type="I">
+<li>Hopefully you don't see dotted lines</li>
+<li>Every function must have some width to it -- for example f(x) = x**6 is bad, but g(x) = 0.0001*x**6 is good.</li>
+</ol>
+<li>No local minima or maxima can can go outside the window!
+<li>Create some space between the functions; they shouldn't be "on top" of each other too much 
+<li>Your functions should wind up and down
+<li>See the example image to see an example result.  Also, we will discuss all this, and clarify any questions.
+<li>Hint:  Try playing in Desmos first:  https://www.desmos.com/calculator
+</ol>
+</h4>
+
+<h4>8. Write 5 miraculous, delirious, floating, rhythmical, stimulating, poetic, cultivated, mystical, sensitive functions and put them all on the same graph. Constraints:
+<ol type="a">
+<li>Only use these things to make your functions:  sin + *</li>
+<li>Numbers are ok too (or challenge yourself and go numberless)</li>
+<li>Function composition is ok (and encouraged! ... use it a lot!)</li>
+</ol></h4>
+
+<h4>9. Screeps update:
+<ol type="a">
+<li>Show a screenshot of Screeps and describe what’s going on</li>
+<li>2 days later: show another screenshot, and describe what has changed</li>
+<li>3 days after that: show a third screenshot, describe what has changed,</li>
+<li>Write a summary describing the whole arc of what happened.  Include a few interesting code samples and explain them.</li>
+</ol>
+</h4>
+
+<h4>10. Zombie Flexbox game. Go through two more levels. Take two screenshots at interesting moments and explain all of the Flex details you are working on.</h4>
+
+<h4>11. Write a function xPlusOneToThe(n) that takes a positive integer n and returns the polynomial expansion of (x+1)ⁿ.  Show your code plus a screenshot with these 4 assertions passing, and show the result of the fifth expression.
+<ol type="a">
+<li>console.assert(xPlusOneToThe(1) == "x + 1")</li>
+<li>console.assert(xPlusOneToThe(2) == "x² + 2x + 1")</li>
+<li>console.assert(xPlusOneToThe(3) == "x³ + 3x² + 3x + 1")</li>
+<li>console.assert(xPlusOneToThe(10) == "x¹⁰ + 10x⁹ + 45x⁸ + 120x⁷ + 210x⁶ + 252x⁵ + 210x⁴ + 120x³ + 45x² + 10x + 1")</li>
+<li>xPlusOneToThe(100)</li>
+</ol>
+</h4>
+
+<h4>12. Write an original kaboom game from scratch.
+<ol>
+<li>Cris and Alex can work together in the same game</li>
+<li>You can work in replit and deploy it with surge</li>
+<li>Take some screenshots of the game and some snippet of the code</li>
+<li>Write some observations about it</li>
+</ol>
+</h4>
+
+<h5>Working</h5>
     </head>
 </html>
