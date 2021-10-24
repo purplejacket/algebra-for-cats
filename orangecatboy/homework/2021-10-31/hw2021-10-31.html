@@ -26,7 +26,6 @@
             padding: 2px 4px;
             white-space: nowrap;
         }
-
       </style>
 
 <h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
@@ -78,9 +77,24 @@ Pug.barks
 // what's going on here?  Hint:  mdn prototypal inheritance
 </code></pre>
 
+<h5>This makes an object, then checks a property of a related object.</h5>
+
 <h4>5. Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.</h4>
 
 <h4>6. Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.</h4>
+
+<pre><code class="language-js">function randObject() {
+    const letters = "abcdefghijklmnopqrstuvwxyz".split("");
+    let returnValue = {};
+    const rng = Math.floor(Math.random()*7)+6;
+    while(Object.keys(returnValue).length< rng){
+        let rletter = letters[Math.floor(Math.random()*letters.length)];
+        let rnum = Math.floor(Math.random()*4)+1;
+        returnValue[rletter]=rnum;
+    }
+    return returnValue;
+}</code></pre>
+
 
 <h4>7. Create a graph containing six 6th degree polynomials, with the following extra rules:
 <ol type="a">
@@ -105,6 +119,14 @@ Pug.barks
 <li>Function composition is ok (and encouraged! ... use it a lot!)</li>
 </ol></h4>
 
+<img src="insanefuncs.png" width="200">
+<pre><code class="language-js">const a = (x) => Math.sin(x*2);
+const b = (x) => Math.tan(a(x));
+const c = (x) => b(x) + a(x);
+const d = (x) => a(b(c(x)));
+const e = (x) => c(x)*2;
+</code></pre>
+
 <h4>9. Screeps update:
 <ol type="a">
 <li>Show a screenshot of Screeps and describe what’s going on</li>
@@ -124,9 +146,9 @@ Pug.barks
 <h5>display: flex to turn it on<br>
 flex-direction: to set where it fires<br>
 align-items/align-self: to set the exact alignment</h5>
-<img src="f.png">
+<img src="f.png" width="200">
 
-<img src="ff.png">
+<img src="ff.png" width="200">
 
 <h4>11. Write a function xPlusOneToThe(n) that takes a positive integer n and returns the polynomial expansion of (x+1)ⁿ.  Show your code plus a screenshot with these 4 assertions passing, and show the result of the fifth expression.
 <ol type="a">
