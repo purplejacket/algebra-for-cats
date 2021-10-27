@@ -1,4 +1,3 @@
-  
 <html>
     <head>
         <link
@@ -13,6 +12,9 @@
           h5{
               color:rgb(209, 101, 186);
           }
+          h4{
+              color: white;
+          }
           kbd {
             background-color: #eee;
             border-radius: 3px;
@@ -26,12 +28,40 @@
             padding: 2px 4px;
             white-space: nowrap;
         }
+        .bordering1
+        {
+            border-top:rgba(0, 0, 0, 0.2);
+            border-width: 0.1in;
+            border-color: rgb(114, 0, 207);
+            border-radius: 2pt;
+            border-style: solid;
+            padding-left: 1vh;
+            
+        }
+        .bordering2
+        {
+            border-width: 0.1in;
+            border-top-color:rgba(0, 0, 0, 0.2);
+            border-color: rgb(255, 0, 221);
+            border-radius: 2pt;
+            border-style: solid;
+            padding-left: 1vh;
+        }
+        body {
+            background:mediumblue;
+        }
       </style>
-
+    </head>
+    <body>
+<!--Question 1-->
+<div class="bordering1">
 <h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
 
 <h5>There are infinitely many twin primes simply because their are infinitely many regular primes.</h5>
+    </div>
 
+    <div class="bordering2">
+<!--Question 2-->
 <h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.<br>
     <ol type="a">
 <li>cd to your October 10 homework directory
@@ -66,25 +96,37 @@ npm ERR!     at FSReqCallback.oncomplete (node:fs:193:21)
 
 npm ERR! A complete log of this run can be found in:
 npm ERR!     /Users/dancedude/.npm/_logs/2021-10-23T18_59_12_140Z-debug.log
-</code></pre>
+</code></pre></div>
 
+<div class="bordering1">
+
+<!--Question 3-->
 <h4>3. For the homework that was due June 18, turn it into an html file with associated image files.  Use pageres to make an image of that file and include it as your answer here.  And don't forget to use pngquant as well!</h4>
 
 <img src="3-fs8.png" width="500">
+</div>
 
+<div class="bordering2">
+<!--Question 4-->
 <h4>4. Easy console work, plus a "discuss" question:<h4>
 <pre><code class="language-js">const Dog = { barks: true }
 const Pug = Object.create(Dog)
 Pug.barks
 // what's going on here?  Hint:  mdn prototypal inheritance
-</code></pre>
+</code></pre></h4></h4>
+
 
 <h5>This makes an object, then checks a property of a related object.</h5>
+</div>
+<!--Question 5-->
+<div class="bordering1">
 
 <h4>5. Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.</h4>
 
-<h5>Day 1 done</h5>
+<h5>Day 1 and 2 done</h5></div>
 
+<div class="bordering2">
+<!--Question 6-->
 <h4>6. Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.</h4>
 
 <pre><code class="language-js">function randObject() {
@@ -98,8 +140,11 @@ Pug.barks
     }
     return returnValue;
 }</code></pre>
-<img src="snippit1-fs8.png" width="500">
+<img src="snippit1-fs8.png" width="500"></div>
 
+<div class="bordering1">
+
+<!--Question 7-->
 <h4>7. Create a graph containing six 6th degree polynomials, with the following extra rules:
 <ol type="a">
 <li>Have your x-axis and y-axis range from -15 through +15 (length of 30)</li>
@@ -122,13 +167,13 @@ Good<br>
 
 <img src="six_polynomials_of_degree_6.png" width="500"><br>
 <br>
-<br>
 Mine:<br>
 <img src="myfuncs.png" width="500">
-</h4>
+</h4></div>
 
+<div class="bordering2">
 
-
+<!--Question 8-->
 <h4>8. Write 5 miraculous, delirious, floating, rhythmical, stimulating, poetic, cultivated, mystical, sensitive functions and put them all on the same graph. Constraints:
 <ol type="a">
 <li>Only use these things to make your functions:  sin + *</li>
@@ -136,14 +181,18 @@ Mine:<br>
 <li>Function composition is ok (and encouraged! ... use it a lot!)</li>
 </ol></h4>
 
+<!-- <div class="bordering1"> -->
+
 <img src="insanefuncs.png" width="200">
 <pre><code class="language-js">const a = (x) => Math.sin(x*2);
 const b = (x) => Math.tan(a(x));
 const c = (x) => b(x) + a(x);
 const d = (x) => a(b(c(x)));
 const e = (x) => c(x)*2;
-</code></pre>
+</code></pre></div>
 
+<div class="bordering1">
+<!--Question 9-->
 <h4>9. Screeps update:
 <ol type="a">
 <li>Show a screenshot of Screeps and describe what’s going on</li>
@@ -156,8 +205,12 @@ const e = (x) => c(x)*2;
 <h5><ol type="a">
 <li>This screenshot was taken just after I had been attacked by... TIGGAAAAAAA!!!!!!!!</li>
 <img src="attack.png" width="300">
-</ol></h5>
+<li>Respawning. Rebuilding. yay.</li>
+<img src="day2.png" alt="day2 of screeps" width="400">
+</ol></h5></div>
 
+<div class="bordering2">
+<!--Question 10-->
 <h4>10. Zombie Flexbox game. Go through two more levels. Take two screenshots at interesting moments and explain all of the Flex details you are working on.</h4>
 
 <h5>display: flex to turn it on<br>
@@ -166,7 +219,10 @@ align-items/align-self: to set the exact alignment</h5>
 <img src="f.png" width="200">
 
 <img src="ff.png" width="200">
+</div>
 
+<div class="bordering1">
+<!--Question 11-->
 <h4>11. Write a function xPlusOneToThe(n) that takes a positive integer n and returns the polynomial expansion of (x+1)ⁿ.  Show your code plus a screenshot with these 4 assertions passing, and show the result of the fifth expression.
 <ol type="a">
 <li>console.assert(xPlusOneToThe(1) == "x + 1")</li>
@@ -178,6 +234,34 @@ align-items/align-self: to set the exact alignment</h5>
 </ol>
 </h4>
 
+<pre><code class="language-js">function xPlusOneToThe(n){
+    let result = '';
+    let coefficients = pascalRow(n);
+    if(n == 1){
+      return 'x + 1'
+    }
+    for(let i = 0; i< coefficients.length - 1; i++){
+        let x;
+        if(i < coefficients.length - 2){
+          x = xToThe(coefficients.length - 1 - i);
+        }else {
+          x = 'x';
+        }
+        let c = coefficients[i];
+        if(c !== 1){
+          result +=  c + x;
+        }else {
+          result +=  x;
+        }
+        result += ' + '
+    }
+    result += "1";
+    return result;
+  }</div>
+  
+
+<div class="bordering2">
+<!--Question 12-->
 <h4>12. Write an original kaboom game from scratch.
 <ol type="a">
 <li>Cris and Alex can work together in the same game</li>
@@ -189,7 +273,6 @@ align-items/align-self: to set the exact alignment</h5>
 
 <h5><ol type="a">
 <li>Obzervationes: So, my only one so far is that loading sprites is really annoying.</li>
-</ol></h5>
-
-    </head>
+</ol></h5></div>
+    </body>
 </html>
