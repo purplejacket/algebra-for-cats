@@ -15,9 +15,12 @@
           h4{
               color: white;
           }
+          h1{
+            color: rgb(131, 103, 103);
+          }
           kbd {
             background-color: rgb(238, 238, 238);
-            border-radius: 3px;
+            border-radius: 1px;
             border: 1px solid #a30d0d;
             box-shadow: 0 1px 1px rgb(38, 133, 170), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
             color: rgb(0, 0, 0);
@@ -32,7 +35,7 @@
         {
             border-top:rgba(0, 0, 0, 0.2);
             border-width: 0.1in;
-            border-color: rgb(114, 0, 207);
+            border-color: rgb(0, 176, 207);
             border-radius: 2pt;
             border-style: solid;
             padding-left: 1vh;
@@ -50,6 +53,12 @@
         body {
             background:mediumblue;
         }
+        .highlight{
+          font-family: 'Courier New', Courier, monospace;
+          background-color: rgb(199, 188, 188);
+          color: rgb(255, 0, 0);
+          border-radius: 2pt;
+    }
       </style>
     </head>
     <body>
@@ -59,23 +68,26 @@
 <div class="bordering1">
 <h4>1. Prove that there are infinitely many twin primes.  (Here an internet search can help you.)  Discuss.</h4>
 
-<h5>There are infinitely many twin primes simply because their are infinitely many regular primes.</h5>
+<h5>Unfortunately, this conjecture is not proven by any mathematicians. But there’s one person that could prove that there are gaps between primes that are less than 70 million, with a method known as GPY that uses the Sieve of Erastothenes. Although this method is very useful for this conjecture, a number theorist at San Jose State University named Daniel Goldston, thinks that the best result he can get with the GPY method is that there are infinitely many prime pairs that differ by 16 or less.
+  IN CONCLUSION
+  There is no method that prove this conjecture. So far, it was proven that primes have a gap of something less than 70 million. With the GPY method mathematicians estimate that the best result they can get is a gap of 16 approximately...
+  </h5>
     </div>
 
     <div class="bordering2">
 <!--Question 2-->
-<h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.<br>
+<h4>2. Install and test the pageres command.  Do the first 3 steps below; then for all of the rest of the steps copy all the output into a single long < pre> tag as your answer.</pre><br>
     <ol type="a">
-<li>cd to your October 10 homework directory
-    <li>run http-server  -- now your terminal tab is busy, so ...
-        <li>open a new Terminal tab with <kbd>⌘</kbd> + <kbd>T</kbd>
-<li>npm install -g pageres-cli
-<li>pageres --help
-<li>pageres http://127.0.0.1:8080/hw2021-10-10.html
-<li>ls -l 127*
-<li>pngquant 127*
-<li>ls -l 127*
-<li>rm 127*</ol></h4>
+<li><h4 class="highlight">cd to your October 10 homework directory</h4>
+    <li><h4 class="highlight">run http-server  -- now your terminal tab is busy, so ...</h4>
+        <li><h4 class="highlight">open a new Terminal tab with <kbd>⌘</kbd> + <kbd>T</kbd></h4>
+<li><h4 class="highlight">npm install -g pageres-cli</h4>
+<li><h4 class="highlight">pageres --help</h4>
+<li><h4 class="highlight">pageres http://127.0.0.1:8080/hw2021-10-10.html</h4>
+<li><h4 class="highlight">ls -l 127*</h4>
+<li><h4 class="highlight">pngquant 127*</h4>
+<li><h4 class="highlight">ls -l 127*</h4>
+<li><h4 class="highlight">rm 127*</h4></ol></h4>
 
 <h5>so... this is unfortunate, there is an error and I am not sure what it means.</h5>
 
@@ -125,8 +137,9 @@ Pug.barks
 
 <h4>5. Mental math, powers of 2:  On some different occasions during the weeks of this assignment, try to do 2⁰ through 2¹⁶ in your head at nighttime in bed with your eyes closed.  Visualize the numbers.  Then, towards the end of the assignment time period, write about this exercise.</h4>
 
-<h5>Day 1 and 2 done</h5></div>
-
+<h5>Day 1 and 2 done</h5>
+<h5>I'm not exactly sure what I am supposed to write here, but this exersize was interesting to say the least.</h5>
+</div>
 <div class="bordering2">
 <!--Question 6-->
 <h4>6. Write a function called randObject that takes no parameters.  When invoked it will return an object having a random number of properties (random from 6-12).  Each property will have a key that is a random lowercase English letter, and a value that is a random integer in the range 1-4.  Show your code and some sample runs.</h4>
@@ -185,7 +198,7 @@ Mine:<br>
 
 <!-- <div class="bordering1"> -->
 
-<img src="insanefuncs.png" width="200">
+<img src="insanefuncs.png" width="400">
 <pre><code class="language-js">const a = (x) => Math.sin(x*2);
 const b = (x) => Math.tan(a(x));
 const c = (x) => b(x) + a(x);
@@ -239,7 +252,64 @@ align-items/align-self: to set the exact alignment</h5>
 </ol>
 </h4>
 
-<pre><code class="language-js">function xPlusOneToThe(n){
+<pre><code class="language-js"> function xToThe(n) {
+    var output = 'x';
+    var nstr = n.toString();
+    for (i=0; i< nstr.length; i++){
+        switch(nstr[i]) {
+          case '-':
+            output=output+'⁻'
+            break;
+          case '0':
+            output=output+'⁰';
+            break;
+          case '1':
+            output=output+'¹';
+            break;
+          case '2':
+            output=output+'²';
+            break;
+          case '3':
+            output=output+'³';
+            break;
+          case '4':
+            output=output+'⁴';
+            break;
+          case '5':
+            output=output+'⁵';
+            break;
+          case '6':
+            output=output+'⁶';
+            break;
+          case '7':
+            output=output+'⁷';
+            break;
+          case '8':
+            output=output+'⁸';
+            break;
+          case '9':
+            output=output+'⁹';
+            break;
+        }
+    }
+    return output;
+  }
+  
+  function pascalRow(n){
+    let array = [1,1];
+    for(let i=1; i< n; i++){
+        let next = [];
+        let scratch = [0, ...array, 0]
+        for(let j=0; j< scratch.length-1; j++){
+            next.push(scratch[j]+scratch[j+1]);
+        }
+        array = next;
+    }
+    return array;
+  }
+
+
+  function xPlusOneToThe(n){
     let result = '';
     let coefficients = pascalRow(n);
     if(n == 1){
@@ -262,7 +332,7 @@ align-items/align-self: to set the exact alignment</h5>
     }
     result += "1";
     return result;
-  }</div>
+  }</code></pre></div>
   
 
 <div class="bordering2">
@@ -278,6 +348,7 @@ align-items/align-self: to set the exact alignment</h5>
 
 <h5><ol type="a">
 <li>Obzervationes: So, my only one so far is that loading sprites is really annoying.</li>
+<li>because of some confusion I will show some code in class today (friday 29)</li>
 </ol></h5></div>
     </body>
 </html>
