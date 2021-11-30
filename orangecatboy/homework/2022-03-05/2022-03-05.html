@@ -120,39 +120,52 @@ m²(m + 2p) = true
 
 </p>
 
-2. For the homework that was due June 11, 2021, turn it into an html file with associated image files.  Include a screenshot here.
-3. In p5js draw a box that’s 800x800 pixels with a blue border and then draw a circle with a red border that fits snugly within that.  Then write a loop that iterates 4000 times; each time it will choose a random x value from 1-800 and a random y value from 1-800 and draw a dot at (x,y) within your square.
-4. In p5js draw a box that’s 800x800 pixels and make it look like graph paper.
-write a function that can fill in some of the squares to form a smiley face
-write a function that can fill it some of the squares to form the “glider” image
-5. Here we have an image of a square within a square.  Recreate this image in p5js and enhance it as described below.  Also, answer the questions.
-Create an 800x800 canvas to contain your image.  Make the blue square have size 600x600.  (Pixels)
-In the blue square add the perpendicular line symbol to indicate that the outer corners are 90° angles.
-Just using your eyeball, what do you estimate is the degree measure of the smaller angle of the blue triangles?  Or better, if you have a protractor, hold it up to the screen and try to get a measure accurate to a degree or so.  Another method would be to play with the online interactive unit circle and make a similar triangle:  https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html -- and  then look at what angle measure you have.
-In all four of the blue triangles label the smaller acute angle as θ (theta).
-There is a theorem in geometry that says all of the angles of a triangle add up to ⅅ degrees.  What is the value of ⅅ?
-Given your answer to that last question, and looking at the blue triangles, what can you conclude about the value of larger acute angles relative to θ?
-Label all of those four larger acute angles with the value you just derived.
-6. Basic concepts of mathematical Set Theory:
-Show an example of a set containing 5 integers
-The empty set is written like this {}.  And remember, ∩ means “intersection”. For instance, {1, 2, 3} ∩ {9, 10, 11, 12} = {}.  The empty set is also written like this: ∅.
-Give an example of two sets whose intersection is ∅.
-Give an example of two sets whose intersection is not ∅.
-Give three examples of infinite sets.
-7. 𝓟 -- the power set.  Let 𝓟(x) be the function that takes a set x and returns a set containing all of the subsets of x.  For example, suppose x is the set containing just the numbers 1 and 2, i.e., x={1, 2}.  (Note: this is mathematical notation, not JavaScript notation.)  Then 𝓟({1, 2}) = {{}, {1}, {2}, {1, 2}}.  Evaluate the following:
-𝓟({1, 2, 3})
-𝓟({2, 3, 4})
-𝓟({1, 2, 3, 4})
-𝓟({2, 3, 4, 5}) ∩ 𝓟({4, 5, 6, 7})
-8.  Set membership.  Answer true/false to the questions below.  For reference, see https://en.wikipedia.org/wiki/Element_%28mathematics%29
-1 ∈ {1, 2, 3, 27}
-10 ∈ {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}
-1048 ∈ {2ⁿ: where n is an integer}
-Let A = {all real numbers less than 100}, B = {all real numbers greater than π} -- 10 ∈ A ∩ B
-7 ∈ the set of prime numbers
-7 ∈ the set of solutions to the equation (x-4)(x+3)(2x+1)(x+5) = 0
-{1, 2} ∈ {1, 3, {1, 2}, 5, {5}}
-{1, 2, 3} ∈ 𝓟({1, 2, 3, 4})
+<p>2. For the homework that was due June 11, 2021, turn it into an html file with associated image files.  Include a screenshot here.</p>
+<p>3. In p5js draw a box that’s 800x800 pixels with a blue border and then draw a circle with a red border that fits snugly within that.  Then write a loop that iterates 4000 times; each time it will choose a random x value from 1-800 and a random y value from 1-800 and draw a dot at (x,y) within your square.</p>
+<p>4. In p5js draw a box that’s 800x800 pixels and make it look like graph paper.</p>
+<ol type="a">
+<li>write a function that can fill in some of the squares to form a smiley face</li>
+<li>write a function that can fill it some of the squares to form the “glider” image</li></ol>
+<p>5. Here we have an image of a square within a square.  Recreate this image in p5js and enhance it as described below.  Also, answer the questions.</p>
+<ol type="a">
+<li>Create an 800x800 canvas to contain your image.  Make the blue square have size 600x600.  (Pixels)
+<li>In the blue square add the perpendicular line symbol to indicate that the outer corners are 90° angles.
+<li>Just using your eyeball, what do you estimate is the degree measure of the smaller angle of the blue triangles?  Or better, if you have a protractor, hold it up to the screen and try to get a measure accurate to a degree or so.  Another method would be to play with the online interactive unit circle and make a similar triangle:  <a href="https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html">https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html</a> -- and  then look at what angle measure you have.
+<li>In all four of the blue triangles label the smaller acute angle as θ (theta).
+<li>There is a theorem in geometry that says all of the angles of a triangle add up to ⅅ degrees.  What is the value of ⅅ?
+<li>Given your answer to that last question, and looking at the blue triangles, what can you conclude about the value of larger acute angles relative to θ?
+<li>Label all of those four larger acute angles with the value you just derived.
+</ol>
+
+<p>6. Basic concepts of mathematical Set Theory:</p>
+<ol type="a">
+<li>Show an example of a set containing 5 integers
+<li>The empty set is written like this {}.  And remember, ∩ means “intersection”. For instance, {1, 2, 3} ∩ {9, 10, 11, 12} = {}.  The empty set is also written like this: ∅.
+<li>Give an example of two sets whose intersection is ∅.
+<li>Give an example of two sets whose intersection is not ∅.
+<li>Give three examples of infinite sets.
+</ol>
+
+<p>7. 𝓟 -- the power set.  Let 𝓟(x) be the function that takes a set x and returns a set containing all of the subsets of x.  For example, suppose x is the set containing just the numbers 1 and 2, i.e., x={1, 2}.  (Note: this is mathematical notation, not JavaScript notation.)  Then 𝓟({1, 2}) = {{}, {1}, {2}, {1, 2}}.  Evaluate the following:</p>
+<ol type="a">
+<li>𝓟({1, 2, 3})
+<li>𝓟({2, 3, 4})
+<li>𝓟({1, 2, 3, 4})
+<li>𝓟({2, 3, 4, 5}) ∩ 𝓟({4, 5, 6, 7})
+</ol>
+
+<p>8.  Set membership.  Answer true/false to the questions below.  For reference, see <a href="https://en.wikipedia.org/wiki/Element_%28mathematics%29">https://en.wikipedia.org/wiki/Element_%28mathematics%29</a></p>
+<ol type="a">
+<li>1 ∈ {1, 2, 3, 27}
+<li>10 ∈ {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}
+<li>1048 ∈ {2ⁿ: where n is an integer}
+<li>Let A = {all real numbers less than 100}, B = {all real numbers greater than π} -- 10 ∈ A ∩ B
+<li>7 ∈ the set of prime numbers
+<li>7 ∈ the set of solutions to the equation (x-4)(x+3)(2x+1)(x+5) = 0
+<li>{1, 2} ∈ {1, 3, {1, 2}, 5, {5}}
+<li>{1, 2, 3} ∈ 𝓟({1, 2, 3, 4})
+</ol>
+
 9. Now, sets in JavaScript.  Easy console work, then write a paragraph explaining what’s going on:
 const mySet1 = new Set()
 mySet1.add(1)
@@ -173,12 +186,15 @@ mySet1.delete(5)
 mySet1.has(5)
 mySet1.size
 console.log(mySet1)
+
 10. What is a Venn Diagram?  Discuss.
 A venn diagram is 2 overlapping circles. Each circle represents a catagory and when they overlap,
+
 11. Draw the following Venn Diagrams using p5js; do this question early during the assignment period:
 2 sets that intersect
 3 sets that intersect
 4 sets that intersect
+
 For the previous question, when you drew 4 sets that intersected, did they intersect in all combinations of ways possible?  If not, use p5js to draw 4 sets that do intersect in all ways possible.
 Sets, a simple practical example: the set of amino acids, and its various subsets.  In the diagram:
 What amino acids are both prolines and negatively charged?
