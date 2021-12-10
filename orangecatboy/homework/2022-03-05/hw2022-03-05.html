@@ -34,12 +34,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     li{
       margin: 10px;
     }
-
+    .bordering1
+        {
+            border-width: 0.09in;
+            border-color: rgb(0, 176, 207);
+            border-radius: 2pt;
+            border-style: dashed;
+            background-color: #00ff0041;
+            
+        }
+      .bordering2
+      {
+        border-width: 0.09in;
+          border-top-color:rgba(0, 0, 0, 0.2);
+          border-color: rgb(255, 0, 221);
+          border-radius: 2pt;
+          border-style: dashed;
+      }
 
 </style>
 <body>
   <h1>Alex's Homework Due March 5th 2021</h1>
-  <ol>
+  <div class="bordering1">
+    <ol>
     <li>The following questions are from GMAT Prep Plus 2019, ISBN 1506234895, page 709:
       <ol type="a">
         <li>If z is an integer is z even? You are given:</li>
@@ -62,7 +79,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         </ol>
       </ol>
     </li>
-
+  </div>
     <li>For the homework that was due June 11, 2021, turn it into an html file with associated image files.  Include a screenshot here.</li>
 
     <li>In p5js draw a box that’s 800x800 pixels with a blue border and then draw a circle with a red border that fits snugly within that.  Then write a loop that iterates 4000 times; each time it will choose a random x value from 1-800 and a random y value from 1-800 and draw a dot at (x,y) within your square.</li>
@@ -79,7 +96,83 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         <li>Create an 800x800 canvas to contain your image.  Make the blue square have size 600x600.  (Pixels)</li>
         <li>In the blue square add the perpendicular line symbol to indicate that the outer corners are 90° angles.</li>
         <li>Just using your eyeball, what do you estimate is the degree measure of the smaller angle of the blue triangles?  Or better, if you have a protractor, hold it up to the screen and try to get a measure accurate to a degree or so.  Another method would be to play with the online interactive unit circle and make a similar triangle:  <a href="https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html">https://www.mathsisfun.com/algebra/trig-interactive-unit-circle.html</a>  -- and  then look at what angle measure you have.</li>
-        <li></li>
+        <li>In all four of the blue triangles label the smaller acute angle as θ (theta).</li>
+        <li>There is a theorem in geometry that says all of the angles of a triangle add up to ⅅ degrees.  What is the value of ⅅ?</li>
+        <li>Given your answer to that last question, and looking at the blue triangles, what can you conclude about the value of larger acute angles relative to θ?</li>
+        <li>Label all of those four larger acute angles with the value you just derived.</li>
+      </ol>
+    </li>
+
+    <li>
+      Basic concepts of mathematical Set Theory:
+      <ol type="a">
+        <li>Show an example of a set containing 5 integers</li>
+        <li>The empty set is written like this {}.  And remember, ∩ means “intersection”. For instance, {1, 2, 3} ∩ {9, 10, 11, 12} = {}.  The empty set is also written like this: ∅.</li>
+        <ol type="i">
+          <li>Give an example of two sets whose intersection is ∅.</li>
+          <li>Give an example of two sets whose intersection is not ∅.</li>
+        </ol>
+        <li>Give three examples of infinite sets.</li>
+      </ol>
+    </li>
+
+    <li>𝓟 -- the power set.  Let 𝓟(x) be the function that takes a set x and returns a set containing all of the subsets of x.  For example, suppose x is the set containing just the numbers 1 and 2, i.e., x={1, 2}.  (Note: this is mathematical notation, not JavaScript notation.)  Then 𝓟({1, 2}) = {{}, {1}, {2}, {1, 2}}.  Evaluate the following:</li>
+    <ol type="a">
+      <li>𝓟({1, 2, 3})</li>
+      <li>𝓟({2, 3, 4})</li>
+      <li>𝓟({1, 2, 3, 4})</li>
+      <li>𝓟({2, 3, 4, 5}) ∩ 𝓟({4, 5, 6, 7})</li>
+    </ol>
+
+    <li>
+      Set membership.  Answer true/false to the questions below.  For reference, see <a href="https://en.wikipedia.org/wiki/Element_%28mathematics%29">https://en.wikipedia.org/wiki/Element_%28mathematics%29</a>
+      <ol type="a">
+        <li>1 ∈ {1, 2, 3, 27}</li>
+        <li>10 ∈ {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31}</li>
+        <li>1048 ∈ {2ⁿ: where n is an integer}</li>
+        <li>Let A = {all real numbers less than 100}, B = {all real numbers greater than π} -- 10 ∈ A ∩ B</li>
+        <li>7 ∈ the set of prime numbers</li>
+        <li>7 ∈ the set of solutions to the equation (x-4)(x+3)(2x+1)(x+5) = 0</li>
+        <li>{1, 2} ∈ {1, 3, {1, 2}, 5, {5}}</li>
+        <li>{1, 2, 3} ∈ 𝓟({1, 2, 3, 4})</li>
+      </ol>
+    </li>
+
+    <li>
+      Now, sets in JavaScript.  Easy console work, then write a paragraph explaining what’s going on:
+      <ol type="a">
+        <li>const mySet1 = new Set()</li>
+        <li>mySet1.add(1)</li>
+        <li>mySet1.add(5)</li>
+        <li>mySet1.add(5)</li>
+        <li>mySet1.add("‘"some text")</li>
+        <li>const o = {a: 1, b: 2}</li>
+        <li>mySet1.add(o)</li>
+        <li>mySet1.add({a: 1, b: 2}) // on this one, things get interesting ...</li>
+        <li>mySet1.has(1)</li>
+        <li>mySet1.has(3)</li>
+        <li>mySet1.has(5)</li>
+        <li>mySet1.has(Math.sqrt(25))</li>
+        <li>mySet1.has(‘Some Text’.toLowerCase())</li>
+        <li>mySet1.has(o)</li>
+        <li>mySet1.size</li>
+        <li>mySet1.delete(5)</li>
+        <li>mySet1.has(5)</li>
+        <li>mySet1.size</li>
+        <li>console.log(mySet1)</li>
+      </ol>
+    </li>
+
+    <li>
+      What is a Venn Diagram?  Discuss.
+    </li>
+
+    <li>
+      Draw the following Venn Diagrams using p5js; do this question early during the assignment period:
+      <ol type="a">
+        <li>2 sets that intersect</li>
+        <li>3 sets that intersect</li>
+        <li>4 sets that intersect</li>
       </ol>
     </li>
   </ol>
