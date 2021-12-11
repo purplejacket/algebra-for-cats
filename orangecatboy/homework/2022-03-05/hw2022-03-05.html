@@ -55,8 +55,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
 </style>
 <body>
   <h1>Alex's Homework Due March 5th 2021</h1>
-  <div class="bordering1">
-    <ol>
+
+  <ol>
     <li>The following questions are from GMAT Prep Plus 2019, ISBN 1506234895, page 709:
       <ol type="a">
         <li>If z is an integer is z even? You are given:</li>
@@ -79,12 +79,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         </ol>
       </ol>
     </li>
-  </div>
+
     <li>For the homework that was due June 11, 2021, turn it into an html file with associated image files.  Include a screenshot here.</li>
 
-    <li>In p5js draw a box that’s 800x800 pixels with a blue border and then draw a circle with a red border that fits snugly within that.  Then write a loop that iterates 4000 times; each time it will choose a random x value from 1-800 and a random y value from 1-800 and draw a dot at (x,y) within your square.</li>
+    <li>In p5js draw a box that's 800x800 pixels with a blue border and then draw a circle with a red border that fits snugly within that.  Then write a loop that iterates 4000 times; each time it will choose a random x value from 1-800 and a random y value from 1-800 and draw a dot at (x,y) within your square.</li>
 
-    <li>In p5js draw a box that’s 800x800 pixels and make it look like graph paper.
+    <li>In p5js draw a box that's 800x800 pixels and make it look like graph paper.
       <ol type="i">
         <li>write a function that can fill in some of the squares to form a smiley face</li>
         <li>write a function that can fill it some of the squares to form the “glider” image</li>
@@ -139,13 +139,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
     </li>
 
     <li>
-      Now, sets in JavaScript.  Easy console work, then write a paragraph explaining what’s going on:
+      Now, sets in JavaScript.  Easy console work, then write a paragraph explaining what's going on:
       <ol type="a">
         <li>const mySet1 = new Set()</li>
         <li>mySet1.add(1)</li>
         <li>mySet1.add(5)</li>
         <li>mySet1.add(5)</li>
-        <li>mySet1.add("‘"some text")</li>
+        <li>mySet1.add("some text")</li>
         <li>const o = {a: 1, b: 2}</li>
         <li>mySet1.add(o)</li>
         <li>mySet1.add({a: 1, b: 2}) // on this one, things get interesting ...</li>
@@ -153,7 +153,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         <li>mySet1.has(3)</li>
         <li>mySet1.has(5)</li>
         <li>mySet1.has(Math.sqrt(25))</li>
-        <li>mySet1.has(‘Some Text’.toLowerCase())</li>
+        <li>mySet1.has('Some Text'.toLowerCase())</li>
         <li>mySet1.has(o)</li>
         <li>mySet1.size</li>
         <li>mySet1.delete(5)</li>
@@ -175,7 +175,185 @@ href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"
         <li>4 sets that intersect</li>
       </ol>
     </li>
-  </ol>
+
+  <li>For the previous question, when you drew 4 sets that intersected, did they intersect in all combinations of ways possible?  If not, use p5js to draw 4 sets that do intersect in all ways possible.</li>
+
+  <li>Sets, a simple practical example: the set of amino acids, and its various subsets.  In the diagram:
+    <ol>
+      <li>What amino acids are both prolines and negatively charged?</li>
+      <li>What is the set of amino acids that are both tiny and aromatic?</li>
+      <li>Are polar amino acids a proper subset of the negatively charged amino acids?  (“Proper” meaning strictly smaller than the enclosing set.)</li>
+      <li>List the amino acids that would be in the small subset minus the tiny subset.</li>
+      <li>How many amino acids are there in the intersection of the aliphatic subset and the small subset?</li>
+      <li>List the amino acids that are in the union of the aromatic and the positive subsets.</li>
+    </ol>
+  </li>
+
+  <li>Write a function gcd(a, b) that takes two non-negative integers a and b and uses the Euclidean Algorithm to find their Greatest Common Divisor.  For reference you can look at <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">https://en.wikipedia.org/wiki/Euclidean_algorithm</a>  or Number Theory: Euclidean Algorithm - An example by Socratica: <a href="https://www.youtube.com/watch?v=fwuj4yzoX1o">https://www.youtube.com/watch?v=fwuj4yzoX1o</a>.  And then for completeness, show the previous <span class="emphasis">gcd</span> function you wrote that depended on <span class="emphasis">sieve</span>.</li>
+  
+  <li>We are going to find a way to list, in order, every single positive integer and fraction in the mathematical universe. Enumerate all of the rational numbers m/n first where m+n≤2, then m+n≤3, then m+n≤4, etc., omitting numbers that are not relatively prime; i.e., omit when gcd(m,n) > 1.  Write a function enumerateFractions(max) that will return an array of positive fractions.  (And max will be a positive integer greater than 1.)
+    <ol type="a">
+      <li>First it lists fractions m/n where m+n≤2.</li>
+      <li>Then it lists fractions m/n where m+n≤3.</li>
+      <li>Then it lists fractions m/n where m+n≤4.</li>
+      <li>... (pattern continues)</li>
+      <li>Then it lists fractions m/n where m+n≤<span class="emphasis">max</span>.</li>
+      <li>It will omit fractions m/n when gcd(m,n) > 1.</li>
+      <li>Make sure the following assertions pass:
+        <ol type="i">
+          <li>console.assert(enumerateFractions(2) == ['1/1']</li>
+          <li>console.assert(enumerateFractions(3) == ['1/1', '2/1', '1/2']</li>
+          <li>console.assert(enumerateFractions(4) == ['1/1', '2/1', '1/2', '3/1', '1/3']</li>
+          <li>console.assert(enumerateFractions(5) == ['1/1', '2/1', '1/2', '3/1', '1/3', '4/1', '3/2', '2/3', '1/4']</li>
+          <li>console.assert(enumerateFractions(6) == ['1/1', '2/1', '1/2', '3/1', '1/3', '4/1', '3/2', '2/3', '1/4', '5/1', '1/5']</li>
+          <li>console.assert(enumerateFractions(7) == ['1/1', '2/1', '1/2', '3/1', '1/3', '4/1', '3/2', '2/3', '1/4', '5/1', '1/5', '6/1', '5/2', '4/3', '3/4', '2/5', '1/6']</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+
+  <li>
+    A bus seats 52 people (see the floorplan).
+    <ol>
+      <li>First, as mental math, estimate:  How many ways can 52 people be arranged in this bus?  What order of magnitude do you get?  For example, if your estimate is a million arrangements, then your order of magnitude is 6 -- because a million has 6 zeroes.</li>
+      <li>Now, calculate the exact number of arrangements</li>
+      <li>Take the base 10 <span class="emphasis">log</span> of that result and compare it to the magnitude you guessed.  Discuss.</li>
+    </ol>
+  </li>
+
+  <li>
+    Write and show all of the following functions on the same <span class="emphasis">graph</span>:
+    <ol type="a">
+      <li>A first degree polynomial that crosses the x-axis at 1 point</li>
+      <li>A second degree polynomial that crosses the x-axis at 0 points</li>
+      <li>A second degree polynomial that touches the x-axis at exactly 1 point</li>
+      <li>A second degree polynomial that crosses the x-axis at 2 points</li>
+      <li>A third degree polynomial that crosses the x-axis at exactly 1 point</li>
+      <li>A third degree polynomial that crosses/touches the x-axis at exactly 2 points</li>
+      <li>A third degree polynomial that crosses the x-axis at exactly 3 points</li>
+      <li>A fourth degree polynomial that crosses the x-axis at 0 points</li>
+      <li>A fourth degree polynomial that touches the x-axis at exactly 1 point</li>
+      <li>A fourth degree polynomial that crosses the x-axis at exactly 2 points</li>
+      <li>A fourth degree polynomial that crosses/touches the x-axis at exactly 3 points</li>
+      <li>A fourth degree polynomial that crosses the x-axis at exactly 4 points</li>
+    </ol>
+  </li>
+
+  <li>
+    <span class="emphasis">Graph</span> the following.  Make two graphs; first graph all of them on the same graph, then graph just <span class="emphasis">f</span> and <span class="emphasis">t₅</span> on the same graph.  Choose a viewing window that helps us see how these functions curve around.
+    <ol type="a">
+      <li>f(x) = sin(x)</li>
+      <li>t₀(x) = x - x³/3!</li>
+      <li>t₁(x) = x - x³/3!</li>
+      <li>t₂(x) = x - x³/3! + x⁵/5!</li>
+      <li>t₃(x) = x - x³/3! + x⁵/5! - x⁷/7!</li>
+      <li>t₄(x) = x - x³/3! + x⁵/5! - x⁷/7! + x⁹/9!</li>
+      <li>t₅(x) = x - x³/3! + x⁵/5! - x⁷/7! + x⁹/9! - x¹¹/11!</li>
+      <li>“t” is for “Taylor Series” -- a series of increasingly accurate approximations</li>
+    </ol>
+  </li>
+
+  <li>
+    Write 5 analytic, cogent, investigative, subtle, perceptive, inquisitive functions and put them all on the same <span class="emphasis">graph</span>.  Restrictions:
+    <ol type="a">
+      <li>Only use these things to make your functions:
+        <ol type="i">
+          <li><span class="emphasis">log</span></li>
+          <li><span class="emphasis">+</span></li>
+          <li><span class="emphasis">-</span></li>
+          <li><span class="emphasis">/</span></li>
+          <li><span class="emphasis">abs</span></li>
+          <li><span class="emphasis">(</span></li>
+          <li><span class="emphasis">)</span></li>
+          <li>numbers</li>
+          <li>function composition</li>
+        </ol>
+        <li>And make these definitions in your code:
+          <ol type="i">
+            <li><span class="emphasis">const log = Math.log</span></li>
+            <li><span class="emphasis">const abs = Math.abs</span></li>
+          </ol>
+        </li>
+      </li>
+    </ol>
+  </li>
+
+  <li>
+    Screeps update:
+    <ol type="a">
+      <li>Show a screenshot of Screeps and describe what's going on</li>
+      <li>1 day later: show another screenshot, record the date, and describe what has changed</li>
+      <li>2 days after that: show a third screenshot, record the date, describe what has changed</li>
+      <li>3 days after that: show a fourth screenshot, record the date, describe what has changed</li>
+      <li>5 days after that: show a fifth screenshot, record the date, describe what has changed</li>
+      <li>8 days after that: show a sixth screenshot, record the date, describe what has changed</li>
+      <li>Write a summary describing the whole arc of what happened.  Include a few interesting code samples and explain them.</li>
+    </ol>
+  </li>
+
+  <li>Kaboomjs.  Upgrade your Kaboom game, or write a new one.  This should probably be the question on this assignment that you spend the most time on.  Write an essay about your Kaboom game.  Be sure to include code samples.</li>
+
+  <li>Zombie Flexbox game. Go through two more levels. Take two screenshots at interesting moments and explain all of the Flex details you are working on.</li>
+
+  <li>Simplify the following expression: 2⁰2¹2²2³2⁴2⁵2⁶2⁷2⁸2⁹2¹⁰2¹¹2¹²2¹³2¹⁴2¹⁵2¹⁶2¹⁷2¹⁸2¹⁹2²⁰2²¹2²²2²³2²⁴2²⁵2²⁶2²⁷2²⁸2²⁹2³⁰2³¹2³²2³³2³⁴2³⁵2³⁶2³⁷2³⁸2³⁹2⁴⁰2⁴¹2⁴²2⁴³2⁴⁴2⁴⁵2⁴⁶2⁴⁷2⁴⁸2⁴⁹2⁵⁰</li>
+
+  <li>Review <span class="emphasis">randObject</span> from the previous homework.  Mentally (or in the console) run this code: <span class="emphasis">obj = randObject()</span>.  Is it necessary that <span class="emphasis">obj</span> will have two different properties that share the same value?  Discuss.</li>
+
+  <li>True or False:  At any given time there live at least two people in Nicaragua with the same number of hairs on their heads.  Discuss.</li>
+
+  <li>Mental math with handstand:  Go through the powers of two 2⁰ 2¹ 2² 2³ 2⁴ 2⁵ 2⁶ 2⁷ 2⁸ 2⁹ 2¹⁰ 2¹¹ 2¹² 2¹³ 2¹⁴ 2¹⁵ 2¹⁶ -- but this time complete the entire sequence while in a handstand against the wall Last time was relaxation, this time your arms will give you a time limit!  Try to accomplish this at least 2³ times during the assignment period.  Discuss.</li>
+
+  <li>Mental math at night:  again, before going to sleep, try this exercise:  go through all the prime numbers less than 169.  Note:  It helps if you know your multiples of 7 and 11 up to 169.  Do this five times during the assignment period.  After each time, check your work the next morning, write down the primes you missed or the numbers you thought were prime but were not.  After the 5 times, discuss.
+    <ol type="a">
+      <li>Date of 1st try, primes missed or wrong</li>
+      <li>Date of 2nd try, primes missed or wrong</li>
+      <li>Date of 3rd try, primes missed or wrong</li>
+      <li>Date of 4th try, primes missed or wrong</li>
+      <li>Date of 5th try, primes missed or wrong</li>
+      <li>discuss</li>
+    </ol>
+  </li>
+
+  <li>
+    Advanced, extra credit.  Implement step 0 of Make A LISP  <a span="https://github.com/kanaka/mal">https://github.com/kanaka/mal</a>.
+    <ol type="a">
+      <li>Fork the repository <a href="https://github.com/kanaka/mal">https://github.com/kanaka/mal</a></li>
+      <li>
+        Clone your forked repository, e.g.:
+        <ol>
+          <li><span class="emphasis">git clone git@github.com:purplejacket/mal.git</span></li>
+          <li>but you'll use your own fork for the above</li>
+        </ol>
+      </li>
+      <li>Change directory to the repo
+        <ol type="i">
+          <li><span class="emphasis">cd mal</span></li>
+        </ol>
+      </li>
+      <li>Take a look at README.md.  Note that it mentions JavaScript.  We will be implementing our own JavaScript version, so let's avoid reading about the existing implementation or looking at the existing js code.</li>
+      <li>Create a new directory and file for our implementation, and then commit/push
+        <ol type="i">
+          <li><span class="emphasis">mkdir impls/javascript</span></li>
+          <li><span class="emphasis">touch impls/javascript/step0_repl.js</span></li>
+          <li><span class="emphasis">git add .</span></li>
+          <li><span class="emphasis">git commit -m "empty javascript step 0 file"</span></li>
+          <li><span class="emphasis">git push</span></li>
+        </ol>
+      </li>
+      <li>In README.md click into the step0_repl instructions.  Read the instructions and then implement step 0 into the step0_repl.js file.</li>
+      <li>Make sure the tests pass, as described in the step0_repl instructions, then commit your work.</li>
+    </ol>
+  </li>
+
+  <li>
+    Advanced, extra credit.  Let's talk about a function f that takes in a real number and gives back a real number.  And we are going to define a special property called játkuva that f might or might not have for some particular real number r.  A function f from ℝ to ℝ is játkuva at a value r if given ε > 0 there exists δ > 0 such that if |r - x| < δ then |f(r) - f(x)| < ε. 
+    <ol type="a">
+      <li>Give an example of a function f that is játkuva at r=3 and explain why.  Hint:  JavaScript has functions on the <span class="emphasis">Math</span> object for which this is true.</li>
+      <li>Give an example of a function f that is not játkuva at r=3 and explain why.  Hint:  JavaScript has functions on the <span class="emphasis">Math</span> object for which this is true.</li>
+      <li>Note:  For the above, you can either choose a function from <span class="emphasis">Math</span> or make up your own function.  Also, a subtlety:  We are talking about a "mathematical" function f (as compared to a JavaScript function) that works on real numbers, and not floating point numbers.  Floating point numbers can only approximate most real numbers (for example <span class="emphasis">Math.Pi</span> is an approximation of π).  The fact that we mention <span class="emphasis">Math</span> only means you might like to look there for examples.</li>
+    </ol>
+  </li>
+</ol>
 
 </body>
 </html>
